@@ -4,44 +4,40 @@
          send_normal/2]).
  -include_lib("eunit/include/eunit.hrl").
 
+start() ->
+    spawn(fun() -> priority_loop() end).
+
+send_vip(Pid, Msg) ->
+    Pid ! {vip, Msg}.
+
+send_normal(Pid, Msg) ->
+    Pid ! {normal, Msg}.
+
 priority_process_msg(Msg) ->
-    io:format("Processing importante msg: ~p~n",[Msg]),
+    io:format("Processing importante msg: ~p~n", [Msg]),
     timer:sleep(500). % only for being able to produce faster than cusume (testing...)
 
-priority_loop_vip(State) ->
-    receive 
+priority_loop() ->
+    receive
         {vip,Msg} ->
             priority_process_msg(Msg),
-            priority_loop_vip(State)
+            priority_loop()
     after 0 ->
-            priority_loop(State)
+            receive 
+                {normal, {Pid, exit}} ->
+                    Pid ! exit;
+                {normal, Msg} ->
+                    io:format("normal msg : ~p~n", [Msg]),
+                    priority_loop();
+                {vip, Msg} ->
+                    priority_process_msg(Msg),
+                    priority_loop()
+            end
     end.
-
-priority_loop(State) ->
-    receive 
-        {normal,{Pid,exit}} ->
-            Pid ! exit;
-        {normal,Msg} ->
-            io:format("normal msg : ~p~n",[Msg]),
-            priority_loop(State);
-        {vip,Msg}->
-            priority_process_msg(Msg),
-            priority_loop_vip(State);
-        {ready,Pid} ->
-            Pid ! read %end test
-    end.
-
-start() ->
-    spawn(fun() -> priority_loop(state_place_holder) end).
-
-send_vip(Pid,Msg) ->
-    Pid ! {vip,Msg}.
-
-send_normal(Pid,Msg) ->
-    Pid ! {normal,Msg}.
 
 send_test() ->
     Pid = start(),
+    send_normal(Pid, "NORMAL0"),
     send_normal(Pid, "NORMAL1"),
     send_vip(Pid,"VIP2"),
     send_vip(Pid,"VIP3"),
