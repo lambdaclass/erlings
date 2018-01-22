@@ -4,10 +4,10 @@
          send_vip/2,
          send_normal/2]).
 
- -include_lib("eunit/include/eunit.hrl").
+-include_lib("eunit/include/eunit.hrl").
 
 start() ->
-    spawn(fun() -> priority_loop() end).
+    spawn(fun priority_loop/0).
 
 send_vip(Pid, Msg) ->
     Pid ! {vip, Msg}.
@@ -15,24 +15,24 @@ send_vip(Pid, Msg) ->
 send_normal(Pid, Msg) ->
     Pid ! {normal, Msg}.
 
-priority_process_msg(Msg) ->
+process_vip_msg(Msg) ->
     io:format("Processing importante msg: ~p~n", [Msg]),
     timer:sleep(500). % only for being able to produce faster than cusume (testing...)
 
+%%% internal functions
+
 priority_loop() ->
     receive
-        {vip,Msg} ->
-            priority_process_msg(Msg),
+        {vip, Msg} ->
+            process_vip_msg(Msg),
             priority_loop()
     after 0 ->
             receive 
-                {normal, {Pid, exit}} ->
-                    Pid ! exit;
                 {normal, Msg} ->
                     io:format("normal msg : ~p~n", [Msg]),
                     priority_loop();
                 {vip, Msg} ->
-                    priority_process_msg(Msg),
+                    process_vip_msg(Msg),
                     priority_loop()
             end
     end.
@@ -48,7 +48,4 @@ send_test() ->
     send_normal(Pid,"NORMAL6"),
     send_vip(Pid,"VIP7"),
     send_vip(Pid,"VIP8"),
-    send_normal(Pid,{self(),exit}),
-    receive
-        exit -> ok
-    end.
+    timer:sleep(5000).
