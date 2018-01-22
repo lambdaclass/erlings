@@ -1,7 +1,9 @@
 -module(priority).
+
 -export([start/0,
          send_vip/2,
          send_normal/2]).
+
  -include_lib("eunit/include/eunit.hrl").
 
 start() ->
