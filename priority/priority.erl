@@ -17,25 +17,12 @@ send_normal(Pid, Msg) ->
 
 %%% internal functions
 
-process_vip_msg(Msg) ->
-    io:format("Processing important msg: ~p~n", [Msg]),
-    timer:sleep(500). % only for being able to produce faster than cusume (testing...)
-
-process_normal_msg(Msg) ->
-    io:format("Processing normal msg: ~p~n", [Msg]),
-    timer:sleep(100).
-
 process_msg(Type, Msg) ->
-    log_message_reception(Type, Msg),
-    case Type of
-        vip -> process_vip_msg(Msg);
-        normal -> process_normal_msg(Msg)
-    end.
+    show_message_type_reception(Type),
+    io:format("Msg: ~p~n", [Msg]),
+    timer:sleep(250). % only for being able to produce faster than cusume (testing...)
 
-log_message_reception(Type, Msg) ->
-    {{Year, Month, Day}, {Hour, Min, Sec}} = erlang:localtime(),
-    io:format("log: ~p/~p/~p ~p:~p:~p -> {~p,~p} ~n", 
-              [Day, Month, Year, Hour, Min, Sec, Type, Msg]).
+show_message_type_reception(Type) -> io:format("message of type ~p received~n",[Type]).
 
 priority_loop() ->
     receive
