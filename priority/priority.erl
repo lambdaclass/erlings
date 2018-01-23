@@ -40,11 +40,11 @@ priority_loop() ->
             end
     end.
 
-send_server(Pid,Msg) ->
-    Pid ! {server,{self(),Msg}}.
+send_server(Pid, Msg) ->
+    Pid ! {server, {self(), Msg}}.
 
 send_die_and_wait(Pid) ->
-    send_server(Pid,die),
+    send_server(Pid, die),
     receive 
         die -> ok
     end.
@@ -53,11 +53,11 @@ send_test() ->
     Pid = start(),
     send_normal(Pid, "NORMAL0"),
     send_normal(Pid, "NORMAL1"),
-    send_vip(Pid,"VIP2"),
-    send_vip(Pid,"VIP3"),
-    send_normal(Pid,"NORMAL4"),
-    send_normal(Pid,"NORMAL5"),
-    send_normal(Pid,"NORMAL6"),
-    send_vip(Pid,"VIP7"),
-    send_vip(Pid,"VIP8"),
+    send_vip(Pid, "VIP2"),
+    send_vip(Pid, "VIP3"),
+    send_normal(Pid, "NORMAL4"),
+    send_normal(Pid, "NORMAL5"),
+    send_normal(Pid, "NORMAL6"),
+    send_vip(Pid, "VIP7"),
+    send_vip(Pid, "VIP8"),
     send_die_and_wait(Pid).
