@@ -7,7 +7,7 @@
 -include_lib("eunit/include/eunit.hrl").
 
 start() ->
-    spawn(fun priority_loop/0).
+    spawn_link(fun priority_loop/0).
 
 send_vip(Pid, Msg) ->
     Pid ! {vip, Msg}.
@@ -28,13 +28,25 @@ priority_loop() ->
             priority_loop()
     after 0 ->
             receive 
+                {vip, Msg} ->
+                    process_vip_msg(Msg),
+                    priority_loop();
                 {normal, Msg} ->
                     io:format("normal msg : ~p~n", [Msg]),
                     priority_loop();
-                {vip, Msg} ->
-                    process_vip_msg(Msg),
-                    priority_loop()
+                {server, {Pid, die}} ->
+                    Pid ! die,
+                    die
             end
+    end.
+
+send_server(Pid,Msg) ->
+    Pid ! {server,{self(),Msg}}.
+
+send_die_and_wait(Pid) ->
+    send_server(Pid,die),
+    receive 
+        die -> ok
     end.
 
 send_test() ->
@@ -48,4 +60,4 @@ send_test() ->
     send_normal(Pid,"NORMAL6"),
     send_vip(Pid,"VIP7"),
     send_vip(Pid,"VIP8"),
-    timer:sleep(5000).
+    send_die_and_wait(Pid).
