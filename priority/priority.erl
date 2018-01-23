@@ -15,24 +15,40 @@ send_vip(Pid, Msg) ->
 send_normal(Pid, Msg) ->
     Pid ! {normal, Msg}.
 
+%%% internal functions
+
 process_vip_msg(Msg) ->
-    io:format("Processing importante msg: ~p~n", [Msg]),
+    io:format("Processing important msg: ~p~n", [Msg]),
     timer:sleep(500). % only for being able to produce faster than cusume (testing...)
 
-%%% internal functions
+process_normal_msg(Msg) ->
+    io:format("Processing normal msg: ~p~n", [Msg]),
+    timer:sleep(100).
+
+process_msg(Type, Msg) ->
+    log_message_reception(Type, Msg),
+    case Type of
+        vip -> process_vip_msg(Msg);
+        normal -> process_normal_msg(Msg)
+    end.
+
+log_message_reception(Type, Msg) ->
+    {{Year, Month, Day}, {Hour, Min, Sec}} = erlang:localtime(),
+    io:format("log: ~p/~p/~p ~p:~p:~p -> {~p,~p} ~n", 
+              [Day, Month, Year, Hour, Min, Sec, Type, Msg]).
 
 priority_loop() ->
     receive
         {vip, Msg} ->
-            process_vip_msg(Msg),
+            process_msg(vip,Msg),
             priority_loop()
     after 0 ->
             receive 
                 {vip, Msg} ->
-                    process_vip_msg(Msg),
+                    process_msg(vip, Msg),
                     priority_loop();
                 {normal, Msg} ->
-                    io:format("normal msg : ~p~n", [Msg]),
+                    process_msg(normal, Msg),
                     priority_loop();
                 {server, {Pid, die}} ->
                     Pid ! die,
