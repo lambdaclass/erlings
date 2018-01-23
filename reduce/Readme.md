@@ -1,5 +1,5 @@
 # Reduce
 
-Implementing ``reduce`` or ``foldr`` with recursion (see [Erlang foldr reference](http://erlang.org/doc/man/lists.html#foldr-3)).
+Implementing ``reduce`` or ``foldl`` with recursion (see [Erlang foldl reference](http://erlang.org/doc/man/lists.html#foldl-3)).
 
 Run tests with ``make``.
