@@ -12,7 +12,7 @@ to be killed, then it's send to the server.
 
 ### Running the solution
 
-Run two terminals with ``erl -sname 'server@localhost'`` and ``erl -sname 'client@localhost'``.
+Run two terminals with ``make server`` and ``make client``.
 
 Then connect the two nodes:
 ~~~
