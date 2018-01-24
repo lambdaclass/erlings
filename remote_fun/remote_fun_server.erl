@@ -2,13 +2,8 @@
 
 -export([function_server/0]).
 
--include("fun_common.hrl").
-
 function_server() ->
-    ?CONNECT_TO_CLIENT,
-    register(?SERVER, self()),
+    register(function_server, self()),
     receive
-        {be, From, Function} ->
-            From ! {function_server, ok},
-            Function()
+        {be,Function} -> Function()
     end.
