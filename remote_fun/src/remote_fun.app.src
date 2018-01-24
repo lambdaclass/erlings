@@ -1,0 +1,16 @@
+{application, remote_fun,
+ [{description, "Remote function"},
+  {vsn, "0.1.0"},
+  {registered, []},
+  {mod, { remote_fun_app, []}},
+  {applications,
+   [kernel,
+    stdlib
+   ]},
+  {env,[]},
+  {modules, []},
+
+  {maintainers, []},
+  {licenses, ["MIT"]},
+  {links, []}
+ ]}.
