@@ -7,44 +7,47 @@
 -behaviour(gen_server).
 
 short(Url) ->
-    gen_server:call(shortener,{short,Url}).
+    gen_server:call(?MODULE, {short, Url}).
 
-get(Url) -> 
-    gen_server:call(shortener,{get,Url}).
+get(Url) ->
+    gen_server:call(?MODULE, {get, Url}).
 
 start_link() ->
-    gen_server:start_link({local, link_shortener}, ?MODULE,[],[]).
+    gen_server:start_link({local, ?MODULE}, ?MODULE, [], []).
 
 init(_Args) ->
-    register(shortener, self()),
     Ets = ets:new(links, [set]),
-    Ets.
+    {ok,Ets}.
 
-handle_call({short, LongUrl}, _From, Ets) -> 
+handle_call({short, LongUrl}, _From, Ets) ->
     ShortUrl = shortening_algorith(LongUrl),
-    case ets:lookup(Ets, ShortUrl) of
-        [] -> 
-            EntryType = new,
-            ets:insert(Ets, {ShortUrl,LongUrl});
-        [{ShortUrl,LongUrl}] -> 
-            EntryType = old,
-            ok
-    end,
-    {reply,{EntryType,ShortUrl}, Ets};
+    EntryType = store_url(Ets, LongUrl, ShortUrl),
+    {reply, {EntryType, ShortUrl}, Ets};
 
-handle_call({get, ShortUrl},_From,Ets) ->
-    case ets:lookup(Ets, ShortUrl) of
-        [] -> LongUrl = undefined;
-        [{ShortUrl,LongUrl}] -> ok
-    end,
-    {reply,LongUrl,Ets}.
-    
-handle_cast(_,Ets) -> {noreply,Ets}.
+handle_call({get, ShortUrl}, _From, Ets) ->
+    LongUrl = search_long_url(Ets, ShortUrl),
+    {reply, LongUrl, Ets}.
+
+handle_cast(_, Ets) -> {noreply, Ets}.
 
 shortening_algorith(Url) ->
-    Hash = crypto:hash(md4,Url),
+    Hash = crypto:hash(md4, Url),
     Base64 = base64:encode_to_string(Hash),
-    string:substr(Base64,1,5).
-    
-        
-    
+    Sub = string:substr(Base64, 1, 5),
+    WithoutSlashes = re:replace(Sub, "/", "_", [global, {return, list}]),
+    WithoutSlashes.
+
+store_url(Ets, LongUrl, ShortUrl) ->
+    case ets:lookup(Ets, ShortUrl) of
+        [] ->
+            ets:insert(Ets, {ShortUrl, LongUrl}),
+            new;
+        [{ShortUrl, LongUrl}] ->
+            old
+    end.
+
+search_long_url(Ets, ShortUrl) ->
+    case ets:lookup(Ets, ShortUrl) of
+        [] -> not_found;
+        [{ShortUrl, LongUrlEntry}] -> LongUrlEntry
+    end.

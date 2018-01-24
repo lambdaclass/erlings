@@ -18,5 +18,3 @@ start(_StartType, _StartArgs) ->
     bitly_sup:start_link().
 
 stop(_State) -> ok.
-
-
