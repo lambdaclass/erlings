@@ -15,10 +15,16 @@
 %%====================================================================
 
 start(_StartType, _StartArgs) ->
-    ShortLink = {'_',[{"/",bitly_short_link_handler,[]}]},
-    Dispath = cowboy_router:compile([ShortLink]),
-    DispathArg = #{env => #{dispatch => Dispath}},
-    {ok,_} = cowboy:start_clear(http, [{port, 8080}], DispathArg),
+    Dispatch = cowboy_router:compile(
+                 [
+                  {'_', [
+                         {"/:url", bitly_short_link_handler, []}
+                        ]}
+                 ]),
+    {ok, _} = cowboy:start_clear(http, [{port, 8080}], #{
+		env => #{dispatch => Dispatch}
+	}),
+    
     bitly_sup:start_link().
 
 %%--------------------------------------------------------------------

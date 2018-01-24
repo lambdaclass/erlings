@@ -1,16 +1,17 @@
 {application, bitly,
- [{description, "An OTP application"},
+ [{description, "Bitly exercise"},
   {vsn, "0.1.0"},
   {registered, []},
   {mod, { bitly_app, []}},
   {applications,
    [kernel,
-    stdlib
+    stdlib,
+    cowboy
    ]},
   {env,[]},
   {modules, []},
 
   {maintainers, []},
-  {licenses, ["Apache 2.0"]},
+  {licenses, ["MIT"]},
   {links, []}
  ]}.
