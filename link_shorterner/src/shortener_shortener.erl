@@ -1,4 +1,4 @@
--module(bitly_shortener).
+-module(shortener_shortener).
 
 -export([short/1, get/1]).
 

@@ -1,4 +1,4 @@
--module(bitly_short_link_handler).
+-module(shortener_link_handler).
 
 -export([init/2]).
 
@@ -20,11 +20,11 @@ get_request_url(Req) ->
     string:substr(RequestPath, 2).
 
 handle_post(Url) ->
-    {_, ShortUrl} = bitly_shortener:short(Url),
+    {_, ShortUrl} = shortener_shortener:short(Url),
     {200, ShortUrl}.
 
 handle_get(Url) ->
-    case bitly_shortener:get(Url) of
+    case shortener_shortener:get(Url) of
         not_found -> {204, ""};
         ShortUrl -> {200, ShortUrl}
     end.

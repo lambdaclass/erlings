@@ -3,7 +3,7 @@
 %% @end
 %%%-------------------------------------------------------------------
 
--module(bitly_sup).
+-module(shortener_sup).
 
 -behaviour(supervisor).
 

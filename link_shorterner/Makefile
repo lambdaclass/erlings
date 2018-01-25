@@ -4,7 +4,7 @@ default:
 	@echo "usage [server|samples]"
 
 server:
-	./rebar3 shell --apps bitly
+	./rebar3 shell --apps shortener
 
 samples:
 	@echo "--"
