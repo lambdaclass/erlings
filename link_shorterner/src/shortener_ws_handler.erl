@@ -10,6 +10,7 @@ init(Req, Opts) ->
 
 websocket_init(State) ->
     % inicializacion despues del upgrade, aqui estamos recien en websocket
+    io:format("inited~n"),
     shortener_shortener:subscribe(self()),
     {ok, State}.
 
@@ -20,7 +21,7 @@ websocket_handle(Msg, State) ->
 
 websocket_info(#{long_url := LongUrl, short_url := ShortUrl}, State) ->
     Response = LongUrl++","++ShortUrl,
-    {ok, {text, Response}, State};
+    {reply, {text, Response}, State};
 
 websocket_info(Info, State) ->
     % info receives erlang msgs
