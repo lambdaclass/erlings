@@ -57,6 +57,6 @@ send_link_notification(Pid, LongUrl, ShortUrl) ->
 
 notify_subscribers(old,_,_) -> nothing;
 notify_subscribers(new, LongUrl, ShortUrl) ->
-    ets:foldl(fun({Subscriber},unused) ->
+    ets:foldl(fun({Subscriber},_) ->
                       send_link_notification(Subscriber, LongUrl, ShortUrl)
               end, unused, subs_ets_name()).
