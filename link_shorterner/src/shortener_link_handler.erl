@@ -12,13 +12,18 @@ init(Req, State) ->
     {ok, Resp, State}.
 
 handle_request(<<"POST">>, Url) -> 
-    {_, ShortUrl} = shortener_shortener:short(Url),
-    {200, ShortUrl};
+    {CreationStatus, ShortUrl} = shortener_shortener:short(Url),
+    HttpStatus =
+        case CreationStatus of
+            old -> 200; %ok
+            new -> 201  %created
+        end,
+    {HttpStatus, ShortUrl};
     
 handle_request(<<"GET">>, Url) ->
     case shortener_shortener:get(Url) of
-        not_found -> {204, ""};
-        ShortUrl -> {200, ShortUrl}
+        not_found -> {404, ""};
+        ShortUrl  -> {302, ShortUrl}
     end.
 
 get_request_url(Req) ->
