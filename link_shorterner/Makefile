@@ -1,10 +1,13 @@
-.PHONY: default server samples
+.PHONY: default server samples test
 
 default:
 	@echo "usage [server|samples]"
 
 server:
 	./rebar3 shell --apps shortener
+
+test:
+	./rebar3 ct
 
 # TODO: Common Test
 samples:
@@ -15,4 +18,3 @@ samples:
 	@echo ""
 	curl -X GET -i -w "\n" http://localhost:8080/fail
 	@echo ""
-
