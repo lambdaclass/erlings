@@ -6,7 +6,6 @@
          stop/1]).
 
 start(_StartType, _StartArgs) ->
-    shortener_shortener:init(),
     Dispatch = cowboy_router:compile(
                  [
                   {'_', [

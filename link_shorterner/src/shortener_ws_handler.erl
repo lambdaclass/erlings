@@ -27,7 +27,7 @@ terminate(_Msg, _Req, _State) ->
     shortener_shortener:unsubscribe(self()),
     ok.
 
-get_ws_json_response(LongUrl,ShortUrl) ->
+get_ws_json_response(LongUrl, ShortUrl) ->
     Data = #{ <<"long_url">>  => LongUrl,
               <<"short_url">> => ShortUrl},
     jsone:encode(Data).

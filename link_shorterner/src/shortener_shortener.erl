@@ -27,8 +27,8 @@ unsubscribe(Pid) ->
 
 %% Internal functions
 
-ets_name() -> 'shortener_ets'.
-subs_name() -> 'shortener_shortener_subs'.
+ets_name() -> shortener_ets.
+subs_name() -> shortener_shortener_subs.
 
 shortening_algorithm(Url) ->
     Hash = crypto:hash(md4, Url),
