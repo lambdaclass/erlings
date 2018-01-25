@@ -3,7 +3,8 @@
 -export([init/0,
          short/1,
          get/1,
-         subscribe/1]).
+         subscribe/1,
+         unsubscribe/1]).
 
 init() -> 
     ets:new(ets_name(), [set, public, named_table]),
@@ -20,6 +21,9 @@ get(ShortUrl) ->
 
 subscribe(Pid) ->
     ets:insert(subs_ets_name(),{Pid}).
+
+unsubscribe(Pid) ->
+    ets:delete(subs_ets_name(),Pid).
 
 %% Internal functions
 
