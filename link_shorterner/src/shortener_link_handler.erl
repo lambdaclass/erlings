@@ -30,9 +30,8 @@ get_request_url(Req) ->
     <<"/", Url/binary>> = cowboy_req:path(Req),
     Url.
 
-get_body_response(404, _) -> <<>>;
-get_body_response(_,   Url) -> 
-    iolist_to_binary([<<"url: \"">>, Url, <<"\"}">>]).
+get_body_response(404, _)   -> <<>>;
+get_body_response(_,   Url) -> jsone:encode(#{<<"url">> => Url }).
 
 get_headers() ->
     #{<<"content-type">> => <<"application/json">>}.

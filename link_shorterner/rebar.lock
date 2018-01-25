@@ -1,10 +1,12 @@
 {"1.1.0",
 [{<<"cowboy">>,{pkg,<<"cowboy">>,<<"2.2.1">>},0},
  {<<"cowlib">>,{pkg,<<"cowlib">>,<<"2.1.0">>},1},
+ {<<"jsone">>,{pkg,<<"jsone">>,<<"1.4.5">>},0},
  {<<"ranch">>,{pkg,<<"ranch">>,<<"1.4.0">>},1}]}.
 [
 {pkg_hash,[
  {<<"cowboy">>, <<"43E9F86A22922A7512A7CA50B61E9F9F90519CC042B3C060861A6AEE7F323CC9">>},
  {<<"cowlib">>, <<"F73658B93DD043AF40400C3E4FD997068EBD0C617F8C8F4CD003A1A78EBF94F5">>},
+ {<<"jsone">>, <<"547AEFEC1C67FE3283F77BAC4DAF85F3F593002764F768FAAA423875A51A2320">>},
  {<<"ranch">>, <<"10272F95DA79340FA7E8774BA7930B901713D272905D0012B06CA6D994F8826B">>}]}
 ].

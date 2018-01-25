@@ -16,8 +16,13 @@ websocket_handle(_Msg, State) ->
     {ok, State}.
 
 websocket_info(#{long_url := LongUrl, short_url := ShortUrl}, State) ->
-    Response = iolist_to_binary([LongUrl, <<",">>, ShortUrl]),
+    Response = get_ws_json_response(LongUrl, ShortUrl),
     {reply, {text, Response}, State};
 
 websocket_info(_Info, State) ->
     {ok, State}.
+
+get_ws_json_response(LongUrl,ShortUrl) ->
+    Data = #{ <<"long_url">>  => LongUrl,
+              <<"short_url">> => ShortUrl},
+    jsone:encode(Data).

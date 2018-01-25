@@ -28,10 +28,10 @@ subs_ets_name() -> 'shortner_subs_ets'.
 
 shortening_algorithm(Url) ->
     Hash = crypto:hash(md4, Url),
-    Base64 = base64:encode_to_string(Hash),
-    Sub = string:substr(Base64, 1, 5),
+    Base64 = base64:encode(Hash),
+    Sub = binary:part(Base64,1,5),
     WithoutSlashes = re:replace(Sub, "/", "_", [global, {return, list}]),
-    WithoutSlashes.
+    list_to_binary(WithoutSlashes).
 
 store_url(Ets, LongUrl, ShortUrl) ->
     case ets:lookup(Ets, ShortUrl) of
