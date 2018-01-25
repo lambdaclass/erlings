@@ -22,7 +22,7 @@ handle_request(<<"GET">>, Url) ->
     end.
 
 get_request_url(Req) ->
-    RequestPath = binary_to_list(cowboy_req:path(Req)),
-    string:substr(RequestPath, 2).
+    <<"/",UrlBinary/binary>> = cowboy_req:path(Req),
+    binary_to_list(UrlBinary).
 
     
