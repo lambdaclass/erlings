@@ -4,7 +4,7 @@
          short/1,
          get/1]).
 
-init() -> ensure_ets().
+init() -> ets:new(ets_name(), [set, public, named_table]).
 
 short(LongUrl) ->
     ShortUrl = shortening_algorithm(LongUrl),
@@ -17,13 +17,6 @@ get(ShortUrl) ->
 %% Internal functions
 
 ets_name() -> 'shotener_ets'.
-
-ensure_ets() ->
-    EtsName = ets_name(),
-    case ets:info(ets_name()) of
-        undefined -> ets:new(EtsName, [set, public, named_table]);
-        _         -> ok
-    end.
 
 shortening_algorithm(Url) ->
     Hash = crypto:hash(md4, Url),
