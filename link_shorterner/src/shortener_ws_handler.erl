@@ -16,7 +16,7 @@ websocket_handle(_Msg, State) ->
     {ok, State}.
 
 websocket_info(#{long_url := LongUrl, short_url := ShortUrl}, State) ->
-    Response = LongUrl++","++ShortUrl,
+    Response = iolist_to_binary([LongUrl, <<",">>, ShortUrl]),
     {reply, {text, Response}, State};
 
 websocket_info(_Info, State) ->

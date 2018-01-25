@@ -6,8 +6,8 @@ init(Req, State) ->
     Url = get_request_url(Req),
     ReqMethod = cowboy_req:method(Req),
     {Status, ShortUrl} = handle_request(ReqMethod, Url),
-    Body = "{url: \"" ++ ShortUrl ++ "\"}",
-    Header = #{<<"content-type">> => <<"application/json">>},
+    Body = get_body_response(Status, ShortUrl),
+    Header = get_headers(),
     Resp = cowboy_req:reply(Status, Header, Body, Req),
     {ok, Resp, State}.
 
@@ -27,5 +27,12 @@ handle_request(<<"GET">>, Url) ->
     end.
 
 get_request_url(Req) ->
-    <<"/", UrlBinary/binary>> = cowboy_req:path(Req),
-    binary_to_list(UrlBinary).
+    <<"/", Url/binary>> = cowboy_req:path(Req),
+    Url.
+
+get_body_response(404, _) -> <<>>;
+get_body_response(_,   Url) -> 
+    iolist_to_binary([<<"url: \"">>, Url, <<"\"}">>]).
+
+get_headers() ->
+    #{<<"content-type">> => <<"application/json">>}.
