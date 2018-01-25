@@ -20,7 +20,7 @@ init(_Args) ->
     {ok,Ets}.
 
 handle_call({short, LongUrl}, _From, Ets) ->
-    ShortUrl = shortening_algorith(LongUrl),
+    ShortUrl = shortening_algorithm(LongUrl),
     EntryType = store_url(Ets, LongUrl, ShortUrl),
     {reply, {EntryType, ShortUrl}, Ets};
 
