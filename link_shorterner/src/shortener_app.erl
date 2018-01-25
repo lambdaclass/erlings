@@ -19,4 +19,6 @@ start(_StartType, _StartArgs) ->
 	}),
     shortener_sup:start_link().
 
-stop(_State) -> ok.
+stop(_State) -> 
+    cowboy:stop_listener(http),
+    ok.
