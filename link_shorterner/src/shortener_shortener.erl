@@ -30,7 +30,7 @@ handle_call({get, ShortUrl}, _From, Ets) ->
 
 handle_cast(_, Ets) -> {noreply, Ets}.
 
-shortening_algorith(Url) ->
+shortening_algorithm(Url) ->
     Hash = crypto:hash(md4, Url),
     Base64 = base64:encode_to_string(Hash),
     Sub = string:substr(Base64, 1, 5),
