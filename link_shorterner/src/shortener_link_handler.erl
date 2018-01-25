@@ -19,7 +19,7 @@ handle_request(<<"POST">>, Url) ->
             new -> 201  %created
         end,
     {HttpStatus, ShortUrl};
-    
+
 handle_request(<<"GET">>, Url) ->
     case shortener_shortener:get(Url) of
         not_found -> {404, ""};
@@ -29,5 +29,3 @@ handle_request(<<"GET">>, Url) ->
 get_request_url(Req) ->
     <<"/", UrlBinary/binary>> = cowboy_req:path(Req),
     binary_to_list(UrlBinary).
-
-    
