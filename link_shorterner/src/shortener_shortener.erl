@@ -1,34 +1,29 @@
 -module(shortener_shortener).
 
--export([short/1, get/1]).
+-export([init/0,
+         short/1,
+         get/1]).
 
--export([start_link/0, init/1, handle_call/3, handle_cast/2]).
+init() -> ensure_ets().
 
--behaviour(gen_server).
-
-short(Url) ->
-    gen_server:call(?MODULE, {short, Url}).
-
-get(Url) ->
-    gen_server:call(?MODULE, {get, Url}).
-
-start_link() ->
-    gen_server:start_link({local, ?MODULE}, ?MODULE, [], []).
-
-init(_Args) ->
-    Ets = ets:new(links, [set]),
-    {ok,Ets}.
-
-handle_call({short, LongUrl}, _From, Ets) ->
+short(LongUrl) ->
     ShortUrl = shortening_algorithm(LongUrl),
-    EntryType = store_url(Ets, LongUrl, ShortUrl),
-    {reply, {EntryType, ShortUrl}, Ets};
+    EntryType = store_url(ets_name(), LongUrl, ShortUrl),
+    {EntryType, ShortUrl}.
 
-handle_call({get, ShortUrl}, _From, Ets) ->
-    LongUrl = search_long_url(Ets, ShortUrl),
-    {reply, LongUrl, Ets}.
+get(ShortUrl) ->
+    search_long_url(ets_name(), ShortUrl).
 
-handle_cast(_, Ets) -> {noreply, Ets}.
+%% Internal functions
+
+ets_name() -> 'shotener_ets'.
+
+ensure_ets() ->
+    EtsName = ets_name(),
+    case ets:info(ets_name()) of
+        undefined -> ets:new(EtsName, [set, public, named_table]);
+        _         -> ok
+    end.
 
 shortening_algorithm(Url) ->
     Hash = crypto:hash(md4, Url),
