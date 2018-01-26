@@ -9,14 +9,17 @@ all() ->
     [test_notfound,
      test_created,
      test_ok,
-     test_redirect].
+     test_redirect,
+     test_ws].
 
 init_per_testcase(_,Config) ->
     application:ensure_all_started(shortener),
+    application:ensure_all_started(gun),
     Config.
 
 end_per_testcase(_, Config) ->
     application:stop(shortener),
+    application:stop(gun),
     Config.
 
 test_notfound(_) ->
@@ -39,13 +42,29 @@ test_redirect(_) ->
     RedirectionHeader = list_to_binary(proplists:get_value("location", Headers)),
     LongUrl = RedirectionHeader.
 
+test_ws(_) ->
+    {Pid, _} = connect_ws("/news"),
+    LongUrl = url("http://random.com/long"),
+    {_, _, #{<<"url">> := ShortUrl}} = do_post_request(LongUrl),
+    JsonResponse = 
+        receive
+            {gun_ws, Pid, {text, Text}} -> Text;
+            _ ->  error(failed)
+        end,
+    Response = json_to_map(JsonResponse),
+    #{<<"long_url">> := LongUrl} = Response,
+    #{<<"short_url">> := ShortUrl} = Response.
+
 get_request_url(Url) ->
     BinaryReqUrl = iolist_to_binary([<<"http://localhost:8080/">>, Url]),
     UrlStr = binary_to_list(BinaryReqUrl),
     UrlStr.
 
 json_to_map(In) ->
-    InBinary = list_to_binary(In),
+    InBinary = case is_list(In) of
+                   true -> list_to_binary(In);
+                   _ -> In
+               end,
     case jsx:is_json(InBinary) of
         true -> jsx:decode(InBinary, [return_maps]);
         _ -> #{}
@@ -66,3 +85,15 @@ do_get_request(Url) ->
 url(Url) ->
     StringUrl = http_uri:encode(Url),
     list_to_binary(StringUrl).
+
+connect_ws(Path) ->
+	{ok, Pid} = gun:open("127.0.0.1", 8080, #{retry=>0}),
+	{ok, http} = gun:await_up(Pid),
+	Ref = monitor(process, Pid),
+	gun:ws_upgrade(Pid, Path, [], #{compress => true}),
+	receive
+		{gun_ws_upgrade, Pid, ok, _} ->
+			ok;
+		_ -> error(failed)
+	end,
+	{Pid, Ref}.

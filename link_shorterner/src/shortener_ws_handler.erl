@@ -30,4 +30,4 @@ terminate(_Msg, _Req, _State) ->
 get_ws_json_response(LongUrl, ShortUrl) ->
     Data = #{ <<"long_url">>  => LongUrl,
               <<"short_url">> => ShortUrl},
-    jsone:encode(Data).
+    jsx:encode(Data).
