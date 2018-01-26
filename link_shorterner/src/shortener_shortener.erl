@@ -17,7 +17,7 @@ short(LongUrl) ->
     {EntryType, ShortUrl}.
 
 get(ShortUrl) ->
-    search_long_url(ets_name(), ShortUrl).
+     search_long_url(ets_name(), ShortUrl).
 
 subscribe(Pid) ->
     pg2:join(subs_name(), Pid).

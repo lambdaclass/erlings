@@ -7,7 +7,7 @@ init(Req, State) ->
     ReqMethod = cowboy_req:method(Req),
     {Status, ShortUrl} = handle_request(ReqMethod, Url),
     Body = get_body_response(Status, ShortUrl),
-    Header = get_headers(),
+    Header = get_headers(Status, ShortUrl),
     Resp = cowboy_req:reply(Status, Header, Body, Req),
     {ok, Resp, State}.
 
@@ -31,7 +31,13 @@ get_request_url(Req) ->
     Url.
 
 get_body_response(404, _)   -> <<>>;
-get_body_response(_,   Url) -> jsx:encode(#{<<"url">> => Url }).
+get_body_response(_,   Url) -> jsx:encode(#{url => Url }).
 
-get_headers() ->
+get_headers(Status, _) when Status =/= 302 -> 
+    common_headers();
+get_headers(302, RedirectUrl) ->
+    CommonHeaders = common_headers(),
+    CommonHeaders#{<<"location">> => RedirectUrl }.
+
+common_headers() ->
     #{<<"content-type">> => <<"application/json">>}.
