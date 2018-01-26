@@ -43,17 +43,14 @@ test_redirect(_) ->
     LongUrl = RedirectionHeader.
 
 test_ws(_) ->
-    {Pid, _} = connect_ws("/news"),
+    WsConn = ws_connect("/news"),
     LongUrl = url("http://random.com/long"),
     {_, _, #{<<"url">> := ShortUrl}} = do_post_request(LongUrl),
-    JsonResponse = 
-        receive
-            {gun_ws, Pid, {text, Text}} -> Text;
-            _ ->  error(failed)
-        end,
+    JsonResponse = ws_get(WsConn),
     Response = json_to_map(JsonResponse),
     #{<<"long_url">> := LongUrl} = Response,
-    #{<<"short_url">> := ShortUrl} = Response.
+    #{<<"short_url">> := ShortUrl} = Response,
+    ws_terminate(WsConn).
 
 get_request_url(Url) ->
     BinaryReqUrl = iolist_to_binary([<<"http://localhost:8080/">>, Url]),
@@ -86,7 +83,7 @@ url(Url) ->
     StringUrl = http_uri:encode(Url),
     list_to_binary(StringUrl).
 
-connect_ws(Path) ->
+ws_connect(Path) ->
 	{ok, Pid} = gun:open("127.0.0.1", 8080, #{retry=>0}),
 	{ok, http} = gun:await_up(Pid),
 	Ref = monitor(process, Pid),
@@ -97,3 +94,15 @@ connect_ws(Path) ->
 		_ -> error(failed)
 	end,
 	{Pid, Ref}.
+
+ws_get({Pid,_}) ->
+    receive
+        {gun_ws, Pid, {text, Text}} -> Text;
+        _ ->  error(failed)
+    after 5000 ->
+            error(timout)
+    end.
+    
+ws_terminate({Pid, Ref}) ->
+    demonitor(Ref),
+    gun:close(Pid).
