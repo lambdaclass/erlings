@@ -8,7 +8,7 @@
 
 init() -> 
     ets:new(ets_name(), [set, public, named_table]),
-    pg2:create(subs_name()).
+    notify_init().
 
 short(LongUrl) ->
     ShortUrl = shortening_algorithm(LongUrl),
@@ -19,16 +19,13 @@ short(LongUrl) ->
 get(ShortUrl) ->
      search_long_url(ets_name(), ShortUrl).
 
-subscribe(Pid) ->
-    pg2:join(subs_name(), Pid).
+subscribe(Pid) -> notify_subscribe(Pid).
 
-unsubscribe(Pid) ->
-    pg2:leave(subs_name(), Pid).
+unsubscribe(Pid) -> notify_unsubscribe(Pid).
 
 %% Internal functions
 
 ets_name() -> shortener_ets.
-subs_name() -> shortener_shortener_subs.
 
 shortening_algorithm(Url) ->
     Hash = crypto:hash(md4, Url),
@@ -52,12 +49,12 @@ search_long_url(Ets, ShortUrl) ->
         [{ShortUrl, LongUrlEntry}] -> LongUrlEntry
     end.
 
-send_link_notification(Pid, LongUrl, ShortUrl) ->
-    Pid ! #{long_url => LongUrl, short_url => ShortUrl}.
+notify_technique_call(F,A) -> apply(shortener_notification_pg2,F,A).
+notify_init() -> notify_technique_call(init,[]).
+notify_subscribe(Pid) -> notify_technique_call(subscribe,[Pid]).
+notify_unsubscribe(Pid) -> notify_technique_call(unsubscribe,[Pid]).
+notify_notify(Msg) -> notify_technique_call(notify,[Msg]). 
 
 notify_subscribers(old,_,_) -> nothing;
 notify_subscribers(new, LongUrl, ShortUrl) ->
-    Subs = pg2:get_members(subs_name()),
-    lists:foreach(fun(Subscriber) ->
-                          send_link_notification(Subscriber, LongUrl, ShortUrl)
-                  end, Subs).
+    notify_notify(#{long_url => LongUrl, short_url => ShortUrl}).
