@@ -12,23 +12,23 @@ all() ->
      test_redirect].
 
 init_per_testcase(_,Config) ->
-    start_web_server(),
+    application:ensure_all_started(shortener),
     Config.
 
 end_per_testcase(_, Config) ->
-    stop_web_server(),
+    application:stop(shortener),
     Config.
 
 test_notfound(_) ->
-    NewUrl = gen_random_url(),
+    NewUrl = url("http://not.com/existent"),
     {404, _,  #{}} = do_get_request(NewUrl).
 
 test_created(_) ->
-    NewUrl = gen_random_url(),
+    NewUrl = url("http://new.created.com/"),
     {201, _, #{<<"url">> := _}} = do_post_request(NewUrl).
 
 test_ok(_) ->
-    LongUrl = gen_random_url(),
+    LongUrl = url("htts://random.org"),
     {201, _, #{<<"url">> := ShortUrl}} = do_post_request(LongUrl),
     {200, _, #{<<"url">> := ShortUrl}} = do_post_request(LongUrl).
 
@@ -62,16 +62,6 @@ do_get_request(Url) ->
     {ok, {{_, StatusCode, _}, Headers, Body}} =
         httpc:request(get, {ReqUrl, []},[{autoredirect,false}],[]),
     {StatusCode, Headers, json_to_map(Body)}.
-
-start_web_server() ->
-    application:ensure_all_started(shortener).
-
-stop_web_server() ->
-    application:stop(shortener).
-
-gen_random_url() ->
-    Random = base64:encode(crypto:strong_rand_bytes(10)),
-    re:replace(Random, "/", "_", [global]).
 
 url(Url) ->
     StringUrl = http_uri:encode(Url),
