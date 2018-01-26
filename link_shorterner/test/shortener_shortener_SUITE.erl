@@ -2,13 +2,8 @@
 
 -include_lib("common_test/include/ct.hrl").
 
--export([all/0,
-         init_per_testcase/2,
-         end_per_testcase/2]).
--export([test_notfound/1,
-         test_created/1,
-         test_ok/1,
-         test_redirect/1]).
+-compile(export_all).
+-compile(nowarn_export_all).
 
 all() ->
     [test_notfound,
@@ -25,24 +20,17 @@ end_per_testcase(_, Config) ->
     Config.
 
 test_notfound(_) ->
-    lists:foreach(
-      fun(_) ->
-              {404, _} = do_get_request(gen_random_url())
-      end, lists:seq(1, 10)).
+    NewUrl = gen_random_url(),
+    {404, #{}} = do_get_request(NewUrl).
 
 test_created(_) ->
-    lists:foreach(
-      fun(_) ->
-              {201, _} = do_post_request(gen_random_url())
-      end, lists:seq(1, 10)).
+    NewUrl = gen_random_url(),
+    {201, #{<<"url">> := _}} = do_post_request(NewUrl).
 
 test_ok(_) ->
-    lists:foreach(
-      fun(_) ->
-              NewUrl = gen_random_url(),
-              {201, _} = do_post_request(NewUrl),
-              {200, _} = do_post_request(NewUrl)
-      end, lists:seq(1,10)).
+    LongUrl = gen_random_url(),
+    {201, #{<<"url">> := ShortUrl}} = do_post_request(LongUrl),
+    {200, #{<<"url">> := ShortUrl}} = do_post_request(LongUrl).
 
 test_redirect(_) ->
     LongUrl = gen_random_url(),
