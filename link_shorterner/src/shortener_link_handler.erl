@@ -31,7 +31,7 @@ get_request_url(Req) ->
     Url.
 
 get_body_response(404, _)   -> <<>>;
-get_body_response(_,   Url) -> jsone:encode(#{<<"url">> => Url }).
+get_body_response(_,   Url) -> jsx:encode(#{<<"url">> => Url }).
 
 get_headers() ->
     #{<<"content-type">> => <<"application/json">>}.
