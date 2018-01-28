@@ -1,4 +1,4 @@
--module(shortener_shortener_SUITE).
+-module(shortly_shortener_SUITE).
 
 -include_lib("common_test/include/ct.hrl").
 
@@ -13,12 +13,12 @@ all() ->
      test_ws].
 
 init_per_testcase(_,Config) ->
-    application:ensure_all_started(shortener),
+    application:ensure_all_started(shortly),
     application:ensure_all_started(gun),
     Config.
 
 end_per_testcase(_, Config) ->
-    application:stop(shortener),
+    application:stop(shortly),
     application:stop(gun),
     Config.
 

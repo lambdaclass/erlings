@@ -1,4 +1,4 @@
--module(shortener_sup).
+-module(shortly_sup).
 
 -behaviour(supervisor).
 
@@ -9,5 +9,5 @@ start_link() ->
     supervisor:start_link({local, ?MODULE}, ?MODULE, []).
 
 init([]) ->
-    shortener_shortener:init(),
+    shortly_shortener:init(),
     {ok, { {one_for_all, 0, 1}, []} }.

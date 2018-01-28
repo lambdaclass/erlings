@@ -1,4 +1,4 @@
--module(shortener_shortener).
+-module(shortly_shortener).
 
 -export([init/0,
          short/1,
@@ -25,7 +25,7 @@ unsubscribe(Pid) -> notify_unsubscribe(Pid).
 
 %% Internal functions
 
-ets_name() -> shortener_ets.
+ets_name() -> shortly_ets.
 
 shortening_algorithm(Url) ->
     Hash = crypto:hash(md4, Url),
@@ -49,7 +49,7 @@ search_long_url(Ets, ShortUrl) ->
         [{ShortUrl, LongUrlEntry}] -> LongUrlEntry
     end.
 
-notify_technique_call(F,A) -> apply(shortener_notification_pg2,F,A).
+notify_technique_call(F,A) -> apply(shortly_notification_pg2,F,A).
 notify_init() -> notify_technique_call(init,[]).
 notify_subscribe(Pid) -> notify_technique_call(subscribe,[Pid]).
 notify_unsubscribe(Pid) -> notify_technique_call(unsubscribe,[Pid]).

@@ -1,8 +1,8 @@
-{application, shortener,
+{application, shortly,
  [{description, "Link shortener exercise"},
   {vsn, "0.1.0"},
   {registered, []},
-  {mod, { shortener_app, []}},
+  {mod, { shortly_app, []}},
   {applications,
    [kernel,
     stdlib,
@@ -10,7 +10,6 @@
    ]},
   {env,[]},
   {modules, []},
-
   {maintainers, []},
   {licenses, ["MIT"]},
   {links, []}

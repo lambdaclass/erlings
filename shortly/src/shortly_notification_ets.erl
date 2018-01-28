@@ -1,13 +1,13 @@
--module(shortener_notification_ets).
+-module(shortly_notification_ets).
 
--behaviour(shortener_notification_algorithm).
+-behaviour(shortly_notification_algorithm).
 
 -export([init/0,
          subscribe/1,
          unsubscribe/1,
          notify/1]).
 
--define(ETS_NAME, shortener_notification_ets_table).
+-define(ETS_NAME, shortly_notification_ets_table).
 
 init() ->
     ets:new(?ETS_NAME, [set, public, named_table]).

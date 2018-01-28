@@ -1,10 +1,10 @@
 .PHONY: default server samples test
 
 default:
-	@echo "usage [test|server|samples]"
+	@echo "usage [test|server]"
 
 server:
-	./rebar3 shell --apps shortener
+	./rebar3 shell --apps shortly
 
 test:
 	./rebar3 eunit

@@ -1,4 +1,4 @@
--module(shortener_link_handler).
+-module(shortly_link_handler).
 
 -export([init/2]).
 
@@ -12,7 +12,7 @@ init(Req, State) ->
     {ok, Resp, State}.
 
 handle_request(<<"POST">>, Url) -> 
-    {CreationStatus, ShortUrl} = shortener_shortener:short(Url),
+    {CreationStatus, ShortUrl} = shortly_shortener:short(Url),
     HttpStatus =
         case CreationStatus of
             old -> 200; %ok
@@ -21,7 +21,7 @@ handle_request(<<"POST">>, Url) ->
     {HttpStatus, ShortUrl};
 
 handle_request(<<"GET">>, Url) ->
-    case shortener_shortener:get(Url) of
+    case shortly_shortener:get(Url) of
         not_found -> {404, ""};
         ShortUrl  -> {302, ShortUrl}
     end.

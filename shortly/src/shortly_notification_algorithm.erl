@@ -1,4 +1,4 @@
--module(shortener_notification_algorithm).
+-module(shortly_notification_algorithm).
 
 -export([behaviour_info/1]).
 
