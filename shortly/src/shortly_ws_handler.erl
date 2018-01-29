@@ -1,4 +1,4 @@
--module(shortener_ws_handler).
+-module(shortly_ws_handler).
 
 -export([init/2,
          websocket_init/1,
@@ -10,7 +10,7 @@ init(Req, Opts) ->
     {cowboy_websocket,Req,Opts}.
 
 websocket_init(State) ->
-    shortener_shortener:subscribe(self()),
+    shortly_shortener:subscribe(self()),
     {ok, State}.
 
 websocket_handle(_Msg, State) ->
@@ -24,7 +24,7 @@ websocket_info(_Info, State) ->
     {ok, State}.
 
 terminate(_Msg, _Req, _State) ->
-    shortener_shortener:unsubscribe(self()),
+    shortly_shortener:unsubscribe(self()),
     ok.
 
 get_ws_json_response(LongUrl, ShortUrl) ->

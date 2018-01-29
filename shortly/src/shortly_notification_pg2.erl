@@ -1,13 +1,13 @@
--module(shortener_notification_pg2).
+-module(shortly_notification_pg2).
 
--behaviour(shortener_notification_algorithm).
+-behaviour(shortly_notification_algorithm).
 
 -export([init/0,
          subscribe/1,
          unsubscribe/1,
          notify/1]).
 
--define (PG2_NAME, shortener_notification_pg2_name).
+-define (PG2_NAME, shortly_notification_pg2_name).
 
 init() ->
     pg2:create(?PG2_NAME).
