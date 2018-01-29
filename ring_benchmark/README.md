@@ -1,4 +1,4 @@
-# Message Ring
+# Ring benchmark
 
 ## Problem
 Create N process in a ring. Send a message round the ring M times so
