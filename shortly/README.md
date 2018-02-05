@@ -21,3 +21,10 @@ that is capable of receiving long links and returning shorts ones:
   
 To run the solution first star the server with ``make server`` and then ``make test`` for
 running simple requests.
+
+## Reading material
+
+- [Rebar3 build tool](https://github.com/erlang/rebar3)
+- [Rebar3 hex](https://hex.pm/docs/rebar3_usage)
+- [Cowboy http server](https://github.com/ninenines/cowboy)
+- [Cowboy user-guide](https://ninenines.eu/docs/en/cowboy/2.2/guide/)

@@ -36,3 +36,7 @@ After the connections are fine, you can test the functions with:
 Ok!
 ok
 ~~~
+
+## Reading material
+
+- [My favorite erlang program](https://joearms.github.io/published/2013-11-21-My-favorite-erlang-program.html)
