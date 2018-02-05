@@ -1,13 +1,13 @@
 -module(producer).
 
--export([produce/0]).
+-export([produce/1]).
 
-produce() ->
-  Pid = consumer:start(),
-  produce(Pid, 10000000).
+produce(RemoteNode) ->
+  produce(RemoteNode, 1).
 
-produce(Pid, N) when N > 0 ->
+produce(RemoteNode, N) when N < 1000000 ->
   RandomMsg = base64:encode(crypto:strong_rand_bytes(20)),
-  consumer:send_message(Pid, RandomMsg),
+  {consumer, RemoteNode} ! {msg, RandomMsg},
+  io:format("~p messages sent ~n", [N]),
   timer:sleep(25),
-  produce(Pid, N-1).
+  produce(RemoteNode, N+1).

@@ -1,5 +1,10 @@
-.PHONY: run
+.PHONY: consumer producer
 
-run:
+compile:
 	./rebar3 compile
-	./rebar3 shell
+
+consumer: compile
+	./rebar3 shell --sname 'consumer@localhost'
+
+producer: compile
+	./rebar3 shell --sname 'producer@localhost'
