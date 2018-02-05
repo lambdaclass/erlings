@@ -1,0 +1,8 @@
+#!/bin/bash
+set -e
+
+N=$1
+M=$2
+
+erlc ring.erl
+erl -noshell -s ring main $N $M -s init stop
