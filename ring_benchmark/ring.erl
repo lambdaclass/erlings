@@ -3,12 +3,11 @@
 
 node_loop(Parent) ->
   receive
+    {msg, []} -> Parent ! done;
     {msg, [FirstNode | OtherNodes]} ->
+      io:format("Node ~p forwarding to ~p~n", [self(), FirstNode]),
       FirstNode ! {msg, OtherNodes},
-      case OtherNodes of
-        [] -> Parent ! done;
-        _  -> node_loop(Parent)
-      end
+      node_loop(Parent)
   end.
 
 % N processes, M messages
@@ -19,7 +18,7 @@ main([NArg, MArg]) ->
   BeforeFistMessage = os:timestamp(),
   FirstNode ! {msg, Nodes},
   receive
-    done -> done
+    done -> io:format("done received ~n")
   end,
   AfterLastMessage = os:timestamp(),
   ElapsedTime = timer:now_diff(AfterLastMessage, BeforeFistMessage),
