@@ -1,41 +1,35 @@
 -module(ring).
 -export([main/1]).
 
-node_loop() ->
+node_loop(Parent) ->
   receive
-    {msg, []} -> ok;
     {msg, [FirstNode | OtherNodes]} ->
       FirstNode ! {msg, OtherNodes},
-      node_loop()
+      case OtherNodes of
+        [] -> Parent ! done;
+        _  -> node_loop(Parent)
+      end
   end.
-    
 
 % N processes, M messages
-main([NArg,MArg]) ->
+main([NArg, MArg]) ->
   N = arg_to_number(NArg),
   M = arg_to_number(MArg),
   [FirstNode | Nodes] = create_processes(N, M),
   BeforeFistMessage = os:timestamp(),
   FirstNode ! {msg, Nodes},
   receive
-    {msg, _} -> ok
+    done -> done
   end,
   AfterLastMessage = os:timestamp(),
   ElapsedTime = timer:now_diff(AfterLastMessage, BeforeFistMessage),
   io:format("Processes: ~p, Messages ~p in ~pms~n", [N, M, ElapsedTime]).
 
 create_processes(N, M) ->
-  Processes = [spawn_link(fun () -> node_loop() end)
+  Parent = self(),
+  Processes = [spawn_link(fun () -> node_loop(Parent) end)
                || _ <- lists:seq(1, N)],
-  ProcessList =
-    lists:foldl(fun(X,Acc) ->
-                    Acc ++ X
-                end,[],lists:duplicate(M, Processes)),
-  CompleteLoop = ProcessList ++ [self()],
-  lists:foldr(fun(Pid,_) ->
-                  Pid ! {process_list, CompleteLoop }
-              end,none,ProcessList),
-  CompleteLoop.
+  lists:append(lists:duplicate(M, Processes)).
 
 arg_to_number(Arg) ->
     Str = atom_to_list(Arg),
