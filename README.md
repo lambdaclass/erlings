@@ -14,7 +14,7 @@ Before starting with this repository's exercises
 0. [Hello world](hello/)
 0. [Hello pattern](hello_patern/)
 0. [Reverse](reverse/)
-0. [Insert element at position](insertat/)
+0. [Insert element at position](insert_element_at/)
 0. [Remove consecutive](rmconsecutive/)
 0. [Rotate Lists](rotatelist/)
 0. [Reduce](reduce/)
