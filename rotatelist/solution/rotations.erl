@@ -12,6 +12,3 @@ rotate(L, {Dir, N}) ->
 	    {Right, Left} = lists:split(N, L)
     end,
     lists:append(Left, Right).
-    
-					
-
