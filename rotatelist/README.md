@@ -12,4 +12,4 @@ For example calling `rotate([1, 2, 3, 4, 5], {right, 2})` should
 return `[3,4,5,1,2]`.
 
 Check it's working with `make test`. You can compare your code with
-[our solution](solution/)
+[our solution](solution/rotations.erl).
