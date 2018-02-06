@@ -10,11 +10,15 @@ Before starting with this repository's exercises
 
 ## Exercises
 
-
+0. [Installing](installing/)
+0. [Hello world](hello/)
+0. [Hello pattern](hello_patern/)
+0. [Reverse](reverse/)
 0. [Insert element at position](insertat/)
 0. [Remove consecutive](rmconsecutive/)
-0. [Rotate Lists](rotatelist)
+0. [Rotate Lists](rotatelist/)
 0. [Reduce](reduce/)
+0. [Fibonacci](fibonacci/)
 0. [Priority](priority/)
 0. [Remote Function](remote_fun/)
 0. [Shortly](shortly/)
