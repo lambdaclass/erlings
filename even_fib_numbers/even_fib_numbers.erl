@@ -1,5 +1,6 @@
 -module(even_fib_numbers).
--compile(export_all).
+
+-compile([even_fib_numbers/0, even_fib_numbers_test/0]).
 
 -include_lib("eunit/include/eunit.hrl").
 
@@ -18,10 +19,10 @@ fibs_less_than(N) ->
 
 fibs_less_than(N, M, AccList) ->
     FibM = fib(M),
-    if 
-	FibM < N ->
-	    fibs_less_than(N, M+1, [ FibM | AccList]);
+    case FibM < N of
 	true ->
+	    fibs_less_than(N, M+1, [ FibM | AccList]);
+	false ->
 	    AccList
     end.
 
