@@ -42,6 +42,7 @@ Before starting with this repository's exercises
 ### Common Data Structures
 [Relevant chapter in Learn You Some Erlang](http://learnyousomeerlang.com/a-short-visit-to-common-data-structures)
 * [Insert element at position](insert_element_at/)
+* [List to Map](list_to_map/)
 
 ### Concurrent Application
 [Relevant chapter in Learn You Some Erlang](http://learnyousomeerlang.com/designing-a-concurrent-application)
