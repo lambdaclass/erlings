@@ -13,6 +13,9 @@ Before starting with this repository's exercises
 ### [Introduction](http://learnyousomeerlang.com/introduction)
 * [Installing](installing/)
 
+### [Starting Out (for real)](http://learnyousomeerlang.com/starting-out-for-real)
+* [Filter Powers of 2](filter_Powers_of_2/)
+
 ### [Modules](http://learnyousomeerlang.com/modules)
 * [Hello world](hello/) 
 
