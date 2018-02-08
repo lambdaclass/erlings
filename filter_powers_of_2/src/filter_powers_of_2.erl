@@ -1,6 +1,6 @@
--module(write_your_module_here).
+-module(filter_powers_of_2).
 
--export([function_you_want_to_export/0]).
+-export([filter_powers/1]).
 
 filter_powers(List) -> 
     put_your_solution_here.

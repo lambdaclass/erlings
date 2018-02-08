@@ -1,4 +1,4 @@
--module(rotations).
+-module(rotate_list).
 
 -export([rotate/2]).
 

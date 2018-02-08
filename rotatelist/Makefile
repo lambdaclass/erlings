@@ -1,4 +1,4 @@
-.PHONY: test                                                                    
-                                                                                
-test:                                                                           
-        rebar3 eunit 
+.PHONY: test
+
+test:
+	rebar3 eunit

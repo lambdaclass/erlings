@@ -1,5 +1,5 @@
--module(write_your_module_here).
+-module(rmconsecutive).
 
--export([function_you_want_to_export/0]).
+-export([rm/1]).
 
 rm(List) -> put_your_solution_here.

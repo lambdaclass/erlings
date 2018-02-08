@@ -1,6 +1,6 @@
--module(write_your_module_here).
+-module(bank_accounts).
 
--export([function_you_want_to_export/0]).
+-export([process_operation/2]).
 
 process_operation(Bank, Operation) ->
     put_your_solution_here.

@@ -1,7 +1,7 @@
 Rotate Lists
 ------------
 
-Create a function `rotations:rotate/2` that rotates the contents of a
+Create a function `rotate_list:rotate/2` that rotates the contents of a
 list `n` positions. It should take 2 arguments:
 
 - A list
@@ -12,4 +12,4 @@ For example calling `rotate([1, 2, 3, 4, 5], {right, 2})` should
 return `[3,4,5,1,2]`.
 
 Check it's working with `make test`. You can compare your code with
-[our solution](solution/rotations.erl).
+[our solution](solution/rotate_list.erl).
