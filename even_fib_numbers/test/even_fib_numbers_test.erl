@@ -6,4 +6,4 @@
 -compile(nowarn_export_all).
 
 even_fib_numbers_test() ->
-    ?assertEqual(4613732,even_fib_numbers:even_fib_numbers()).
+    ?assertEqual(4613732, even_fib_numbers:even_fib_numbers()).
