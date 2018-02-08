@@ -1,0 +1,16 @@
+{application, merge_map,
+ [{description, "merge_map"},
+  {vsn, "0.1.0"},
+  {registered, []},
+  {mod, { merge_map_app, []}},
+  {applications,
+   [kernel,
+    stdlib
+   ]},
+  {env,[]},
+  {modules, []},
+
+  {maintainers, []},
+  {licenses, ["MIT"]},
+  {links, []}
+ ]}.
