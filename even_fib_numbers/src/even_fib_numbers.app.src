@@ -1,5 +1,5 @@
 {application, even_fib_numbers,
- [{description, "An OTP application"},
+ [{description, "even_fib_numbers"},
   {vsn, "0.1.0"},
   {registered, []},
   {mod, { even_fib_numbers_app, []}},
@@ -11,6 +11,6 @@
   {modules, []},
 
   {maintainers, []},
-  {licenses, ["Apache 2.0"]},
+  {licenses, ["MIT"]},
   {links, []}
  ]}.

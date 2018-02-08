@@ -1,5 +1,5 @@
 {application, list_to_map,
- [{description, "An OTP application"},
+ [{description, "list_to_map"},
   {vsn, "0.1.0"},
   {registered, []},
   {mod, { list_to_map_app, []}},
@@ -11,6 +11,6 @@
   {modules, []},
 
   {maintainers, []},
-  {licenses, ["Apache 2.0"]},
+  {licenses, ["MIT"]},
   {links, []}
  ]}.

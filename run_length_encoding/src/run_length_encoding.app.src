@@ -1,5 +1,5 @@
 {application, run_length_encoding,
- [{description, "An OTP application"},
+ [{description, "run_length_encoding"},
   {vsn, "0.1.0"},
   {registered, []},
   {mod, { run_length_encoding_app, []}},
@@ -11,6 +11,6 @@
   {modules, []},
 
   {maintainers, []},
-  {licenses, ["Apache 2.0"]},
+  {licenses, ["MIT"]},
   {links, []}
  ]}.

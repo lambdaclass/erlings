@@ -1,5 +1,5 @@
 {application, bank_accounts,
- [{description, "An OTP application"},
+ [{description, "bank_accounts"},
   {vsn, "0.1.0"},
   {registered, []},
   {mod, { bank_accounts_app, []}},
@@ -11,6 +11,6 @@
   {modules, []},
 
   {maintainers, []},
-  {licenses, ["Apache 2.0"]},
+  {licenses, ["MIT"]},
   {links, []}
  ]}.

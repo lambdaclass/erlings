@@ -1,5 +1,5 @@
 {application, filter_powers_of_2,
- [{description, "An OTP application"},
+ [{description, "filter_powers_of_2"},
   {vsn, "0.1.0"},
   {registered, []},
   {mod, { filter_powers_of_2_app, []}},
@@ -11,6 +11,6 @@
   {modules, []},
 
   {maintainers, []},
-  {licenses, ["Apache 2.0"]},
+  {licenses, ["MIT"]},
   {links, []}
  ]}.
