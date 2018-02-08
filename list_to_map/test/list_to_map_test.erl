@@ -2,9 +2,6 @@
 
 -include_lib("eunit/include/eunit.hrl").
 
--compile(export_all).
--compile(nowar_export_all).
-
 list_to_map_test1() ->
     List = [2, 23, a],
     Map = #{1 => 2, 2 => 23, 3 => a},

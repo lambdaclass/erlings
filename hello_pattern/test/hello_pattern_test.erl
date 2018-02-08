@@ -2,9 +2,6 @@
 
 -include_lib("eunit/include/eunit.hrl").
 
--compile(export_all).
--compile(nowarn_export_all).
-
 hello_day_test() ->
   morning =
     hello_pattern:hello({morning, "Jimmy"}),

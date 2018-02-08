@@ -2,9 +2,6 @@
 
 -include_lib("eunit/include/eunit.hrl").
 
--compile(export_all).
--compile(nowarn_export_all).
-
 rotate_list_right_test() ->
     Res = [3, 4, 5, 1, 2],
     ?assertEqual(Res, rotate_list:rotate([1, 2, 3, 4, 5], {right, 2})).
