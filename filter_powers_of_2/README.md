@@ -19,4 +19,4 @@ As a hint, the file you should be editing is `src/filter_powers_of_2.erl`. But i
 
 - [Learn You Some Erlang: List Comprehensions](http://learnyousomeerlang.com/starting-out-for-real#list-comprehensions)
 
-- [__math_ Module Documentation](http://erlang.org/doc/man/math.html)
+- [_math_ Module Documentation](http://erlang.org/doc/man/math.html)

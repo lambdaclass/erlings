@@ -10,16 +10,24 @@ Before starting with this repository's exercises
 
 ## Exercises
 
-### [Introduction](http://learnyousomeerlang.com/introduction)
+### Getting started
+[Relevant chapter in Learn You Some Erlang](http://learnyousomeerlang.com/introduction)
 * [Installing](installing/)
 
-### [Modules](http://learnyousomeerlang.com/modules)
-* [Hello world](hello/) 
+### First steps
+[Relevant chapter in Learn You Some Erlang](http://learnyousomeerlang.com/starting-out-for-real)
+* [Filter Powers of 2](filter_powers_of_2/)
 
-### [Syntax in Functions](http://learnyousomeerlang.com/syntax-in-functions)
+### Modules
+[Relevant chapter in Learn You Some Erlang](http://learnyousomeerlang.com/modules)
+* [Hello world](hello/)
+
+### Functions
+[Relevant chapter in Learn You Some Erlang](http://learnyousomeerlang.com/syntax-in-functions)
 * [Hello pattern](hello_pattern/)
 
-### [Recursion](http://learnyousomeerlang.com/recursion)
+### Recursion
+[Relevant chapter in Learn You Some Erlang](http://learnyousomeerlang.com/recursion)
 * [Reverse](reverse/)
 * [Remove consecutive](rmconsecutive/)
 * [Even Fibonacci Numbers](even_fib_numbers/)
@@ -27,16 +35,21 @@ Before starting with this repository's exercises
 * [Rotate Lists](rotatelist/)
 * [Run-length Enconding](run_length_encoding/)
 
-### [Higher Order Functions](http://learnyousomeerlang.com/higher-order-functions)
+### Higher Order Functions
+[Relevant chapter in Learn You Some Erlang](http://learnyousomeerlang.com/higher-order-functions)
 * [Reduce](reduce/)
 
-### [A Short Visit to Common Data Structures](http://learnyousomeerlang.com/a-short-visit-to-common-data-structures)
+### Common Data Structures
+[Relevant chapter in Learn You Some Erlang](http://learnyousomeerlang.com/a-short-visit-to-common-data-structures)
 * [Insert element at position](insert_element_at/)
+* [List to Map](list_to_map/)
 
-### [Designing a Concurrent Application](http://learnyousomeerlang.com/designing-a-concurrent-application)
+### Concurrent Application
+[Relevant chapter in Learn You Some Erlang](http://learnyousomeerlang.com/designing-a-concurrent-application)
 * [Priority](priority/)
 * [Remote Function](remote_fun/)
 * [Ring Benchmark](ring_benchmark)
 
-### [What is OTP?](http://learnyousomeerlang.com/what-is-otp)
+### OTP
+[Relevant chapter in Learn You Some Erlang](http://learnyousomeerlang.com/what-is-otp)
 * [Shortly](shortly/)
