@@ -3,7 +3,7 @@ Hello Pattern
 
 In this exercise you will introduced to pattern matching and guards,
 but before we introduce the problem take your time to read
-[Syntax in functions](learnyousomeerlang.com/syntax-in-functions).
+[Syntax in functions](http://learnyousomeerlang.com/syntax-in-functions).
 
 Write a function `hello_pattern:hello/1` which takes a tuple:
 
