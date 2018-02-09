@@ -1,9 +1,4 @@
-.PHONY: compile test
+.PHONY: test
 
-default: test
-
-compile:
-	erl -compile reduce
-
-test: compile
-	erl -noshell -s reduce test -s init stop
+test:
+	rebar3 eunit
