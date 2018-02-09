@@ -1,8 +1,8 @@
-{application, reverse,
- [{description, "reverse"},
+{application, rmconsecutive,
+ [{description, "rmconsecutive"},
   {vsn, "0.1.0"},
   {registered, []},
-  {mod, { reverse_app, []}},
+  {mod, { rmconsecutive_app, []}},
   {applications,
    [kernel,
     stdlib

@@ -2,9 +2,6 @@
 
 -include_lib("eunit/include/eunit.hrl").
 
--compile(export_all).
--compile(nowarn_export_all).
-
 insertion_test() ->
   [1, #{current := "hi", old := 2}, 3] =
     insert_element_at:insert([1, 2, 3], 2, "hi"),

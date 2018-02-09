@@ -1,8 +1,8 @@
-{application, reverse,
- [{description, "reverse"},
+{application, list_to_map,
+ [{description, "list_to_map"},
   {vsn, "0.1.0"},
   {registered, []},
-  {mod, { reverse_app, []}},
+  {mod, { list_to_map_app, []}},
   {applications,
    [kernel,
     stdlib

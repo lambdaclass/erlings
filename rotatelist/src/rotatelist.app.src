@@ -1,8 +1,8 @@
-{application, reverse,
- [{description, "reverse"},
+{application, rotatelist,
+ [{description, "rotatelist"},
   {vsn, "0.1.0"},
   {registered, []},
-  {mod, { reverse_app, []}},
+  {mod, { rotatelist_app, []}},
   {applications,
    [kernel,
     stdlib

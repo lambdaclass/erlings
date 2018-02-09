@@ -1,5 +1,5 @@
 {application, hello_pattern,
- [{description, "An OTP application"},
+ [{description, "hello_pattern"},
   {vsn, "0.1.0"},
   {registered, []},
   {mod, { hello_pattern_app, []}},
@@ -11,6 +11,6 @@
   {modules, []},
 
   {maintainers, []},
-  {licenses, ["Apache 2.0"]},
+ {licenses, ["MIT"]},
   {links, []}
  ]}.

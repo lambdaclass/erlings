@@ -1,8 +1,8 @@
-{application, reverse,
- [{description, "reverse"},
+{application, run_length_encoding,
+ [{description, "run_length_encoding"},
   {vsn, "0.1.0"},
   {registered, []},
-  {mod, { reverse_app, []}},
+  {mod, { run_length_encoding_app, []}},
   {applications,
    [kernel,
     stdlib

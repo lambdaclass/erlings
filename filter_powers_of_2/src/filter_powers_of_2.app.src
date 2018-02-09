@@ -1,8 +1,8 @@
-{application, reverse,
- [{description, "reverse"},
+{application, filter_powers_of_2,
+ [{description, "filter_powers_of_2"},
   {vsn, "0.1.0"},
   {registered, []},
-  {mod, { reverse_app, []}},
+  {mod, { filter_powers_of_2_app, []}},
   {applications,
    [kernel,
     stdlib

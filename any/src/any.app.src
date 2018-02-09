@@ -1,8 +1,8 @@
-{application, reverse,
- [{description, "reverse"},
+{application, any,
+ [{description, "any"},
   {vsn, "0.1.0"},
   {registered, []},
-  {mod, { reverse_app, []}},
+  {mod, { any_app, []}},
   {applications,
    [kernel,
     stdlib
