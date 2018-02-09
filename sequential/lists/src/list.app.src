@@ -1,0 +1,16 @@
+{application, lists,
+ [{description, "lists"},
+  {vsn, "0.1.0"},
+  {registered, []},
+  {mod, { rotatelist_app, []}},
+  {applications,
+   [kernel,
+    stdlib
+   ]},
+  {env,[]},
+  {modules, []},
+
+  {maintainers, []},
+  {licenses, ["MIT"]},
+  {links, []}
+ ]}.
