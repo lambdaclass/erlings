@@ -39,10 +39,14 @@ One of the most important parts of any learning process it the resolution of pra
 [Relevant chapter in Learn You Some Erlang](http://learnyousomeerlang.com/higher-order-functions)
 * [Reduce](reduce/)
 
+### Errors and Exceptions
+* [Bank Accounts](bank_accounts/)
+
 ### Common Data Structures
 [Relevant chapter in Learn You Some Erlang](http://learnyousomeerlang.com/a-short-visit-to-common-data-structures)
 * [Insert element at position](insert_element_at/)
 * [List to Map](list_to_map/)
+* [Calculate BMI](calculate_bmi/)
 
 ### Concurrent Application
 [Relevant chapter in Learn You Some Erlang](http://learnyousomeerlang.com/designing-a-concurrent-application)
@@ -53,3 +57,8 @@ One of the most important parts of any learning process it the resolution of pra
 ### OTP
 [Relevant chapter in Learn You Some Erlang](http://learnyousomeerlang.com/what-is-otp)
 * [Shortly](shortly/)
+
+### Maps
+[Relevant chapter in Learn You Some Erlang](http://learnyousomeerlang.com/maps)
+* [Mapping a Map](mapping_a_map/)
+* [Merge Map](merge_map/)
