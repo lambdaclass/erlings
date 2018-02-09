@@ -2,7 +2,6 @@
 
 ## Exercises
 
-### [Sequential](sequential/)
 #### Getting started
 [Relevant chapter in Learn You Some Erlang](http://learnyousomeerlang.com/introduction)
 * [Installing](installing/)
