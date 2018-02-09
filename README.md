@@ -10,7 +10,7 @@ One of the most important parts of any learning process it the resolution of pra
 
 ## Exercises
 
-### [Sequential](sequential/)
+### [Sequential Programming](sequential/)
 #### Getting started
 [Relevant chapter in Learn You Some Erlang](http://learnyousomeerlang.com/introduction)
 * [Installing](installing/)
@@ -54,14 +54,14 @@ One of the most important parts of any learning process it the resolution of pra
 * [Mapping a Map](mapping_a_map/)
 * [Merge Map](merge_map/)
 
-### [Concurrent](concurrent/)
+### [Concurrent Programming](concurrent/)
 #### Concurrent Application
 [Relevant chapter in Learn You Some Erlang](http://learnyousomeerlang.com/designing-a-concurrent-application)
 * [Priority](priority/)
 * [Remote Function](remote_fun/)
 * [Ring Benchmark](ring_benchmark)
 
-### [Distributed](distributed/)
+### [Distributed Programming](distributed/)
 
 ### [OTP](otp/)
 #### OTP
