@@ -1,6 +1,6 @@
--module(mapping_a_map_app).
+-module(mapping_a_map).
 
 -export([map/2]).
 
 map(F, Map) ->
-    todo.
+    put_your_solution_here.

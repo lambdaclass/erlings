@@ -4,7 +4,7 @@
 
 -include("../src/person_record.hrl").
 
-bmi(P) ->
+bmi(P) when is_record(P, person) ->
     P#person.weight / math:pow(P#person.height, 2).
 
 classify(P) when is_record(P, person) ->
