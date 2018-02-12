@@ -1,21 +1,21 @@
 -module(list).
 
--export([r/1,
-         my_foldl/3,
-         my_foldl/2,
+-export([reverse/1,
+         foldl/3,
+         foldl/2,
          even_fib_numbers/0,
          list_any/1,
-         rm/1,
+         rmconsecutive/1,
          rotate/2,
          run_length_encode/1]).
 
-r(List) ->
+reverse(List) ->
     put_your_solution_here.
 
-my_foldl(Fun, Acc, List) ->
+foldl(Fun, Acc, List) ->
     put_your_solution_here.
 
-my_foldl(Fun, List) ->
+foldl(Fun, List) ->
     put_your_solution_here.
 
 even_fib_numbers() ->
@@ -24,7 +24,7 @@ even_fib_numbers() ->
 list_any(N) ->
     put_your_solution_here.
 
-rm(List) ->
+rmconsecutive(List) ->
     put_your_solution_here.
 
 rotate(List, Tuple) ->

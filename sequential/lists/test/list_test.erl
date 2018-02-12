@@ -17,21 +17,21 @@ rotate_list_left_test() ->
 
 rmconsecutive_test() ->
     List = [1, 1, 1, 2, 3, 4, 1, 1, 1, 3],
-    ?assertEqual([1,2,3,4,1,3], list:rm(List)).
+    ?assertEqual([1,2,3,4,1,3], list:rmconsecutibe(List)).
 
 all_the_same_test() ->
-  ?assertEqual([1, 1, 1, 1], list:r([1, 1, 1, 1])).
+  ?assertEqual([1, 1, 1, 1], list:reverse([1, 1, 1, 1])).
 
 all_different_test() ->
- ?assertEqual([5, 4, 3, 2, 1], list:r([1, 2, 3, 4, 5])).
+ ?assertEqual([5, 4, 3, 2, 1], list:reverse([1, 2, 3, 4, 5])).
 
 foldl_multiply_test() ->
     Multiply = fun (A, B) -> A * B end,
-    ?assertEqual(300, list:my_foldl(Multiply, 10, [2, 5, 3])).
+    ?assertEqual(300, list:foldl(Multiply, 10, [2, 5, 3])).
 
 foldl_add_without_acc_test() ->
     Add = fun (A, B) -> A + B end,
-    ?assertEqual(100, list:my_foldl(Add, [20, 20, 10, 50])).
+    ?assertEqual(100, list:foldl(Add, [20, 20, 10, 50])).
 
 even_fib_numbers_test() ->
     ?assertEqual(4613732, list:even_fib_numbers()).
