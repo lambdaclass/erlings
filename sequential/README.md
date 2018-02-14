@@ -19,7 +19,13 @@
 * [Hello pattern](hello_pattern/)
 
 #### Lists
-* []
+* [Reverse](lists/README.md#reverse)
+* [Remove Consecutive](lists/README.md#remove-consecutive)
+* [Even Fibonacci Numbers](lists/README.md#even-fibonacci-numbers)
+* [Reduce](lists/README.md#reduce)
+* [Rotate Lists](lists/README.md#rotate-lists)
+* [Run-length Encoding of a List](lists/README.md#run-length-encoding-of-a-list)
+* [Any](lists/README.md#any)
 
 #### Errors and Exceptions
 * [Bank Accounts](bank_accounts/)

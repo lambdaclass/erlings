@@ -1,8 +1,6 @@
 # Lists
 
-## Exercises
-
-#### Recursion
+## Recursion
 [Relevant chapter in Learn You Some Erlang](http://learnyousomeerlang.com/recursion)
 
 ### Reverse
@@ -77,7 +75,7 @@ list:run_length_encode([a,a,a,a,b,c,c,a,a,d,e,e,e,e]).
 
 [solution](solution/run_length_encoding.erl)
 
-#### Higher Order Functions
+## Higher Order Functions
 [Relevant chapter in Learn You Some Erlang](http://learnyousomeerlang.com/higher-order-functions)
 
 ### Reduce
