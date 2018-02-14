@@ -33,18 +33,19 @@ cmd(Folder, Command) ->
   Output.
 
 exercise_folders() ->
-  ["installing",
-   "filter_power_of_2",
-   "hello",
-   "hello_pattern",
-   "reverse",
-   "rmconsecutive",
-   "even_fib_numbers",
-   "reduce",
-   "rotatelist",
-   "run_length_encoding",
-   "reduce",
-   "insert_element_at",
-   "list_to_map"].
+  lists:append(
+    [
+     in_folder("sequential", ["installing", "hello", "hello_pattern",
+                              "filter_powers_of_2", "reverse",
+                              "rmconsecutive", "even_fib_numbers",
+                              "reduce", "rotatelist", "run_length_encoding",
+                              "bank_accounts", "insert_element_at",
+                              "list_to_map", "calculate_bmi",
+                              "mapping_a_map", "merge_map"]),
+     in_folder("concurrent", ["priority", "ring_benchmark"]),
+     in_folder("otp", ["shortly"]),
+     in_folder("distributed", ["remote_fun"])
+    ]).
 
-
+in_folder(Folder, SubFolders) ->
+  [Folder ++ "/" ++ SubFolder || SubFolder <- SubFolders].
