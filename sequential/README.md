@@ -36,7 +36,6 @@
 * [Calculate BMI](calculate_bmi/)
 
 #### Maps
-[Relevant chapter in Learn You Some Erlang](http://learnyousomeerlang.com/maps)
-* [Mapping a Map](mapping_a_map/)
-* [Merge Map](merge_map/)
-* [List to Map](list_to_map/)
+* [Mapping a Map](maps/README.md#mapping-a-map)
+* [Merge Map](maps/README.md#merge-map)
+* [List to Map](maps/README.md#list-to-map)
