@@ -2,7 +2,7 @@
  [{description, "lists"},
   {vsn, "0.1.0"},
   {registered, []},
-  {mod, { rotatelist_app, []}},
+  {mod, { lists_app, []}},
   {applications,
    [kernel,
     stdlib
