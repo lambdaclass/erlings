@@ -27,10 +27,9 @@ run_make_on_folder(Folder) ->
   string:str(Output, "0 failures") > 0.
 
 cmd(Folder, Command) ->
-  file:set_cwd(Folder),
-  Output = os:cmd(Command),
-  file:set_cwd("../"),
-  Output.
+  Cmd = io_lib:format("cd ~s && ~s", [Folder, Command]),
+  CmdString = binary_to_list(iolist_to_binary(Cmd)),
+  os:cmd(CmdString).
 
 exercise_folders() ->
   lists:append(
