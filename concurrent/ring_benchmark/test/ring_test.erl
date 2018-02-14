@@ -12,7 +12,7 @@ ring_test() ->
 
 run_ring(M, N) ->
   dbg_start_tracing(M, N),
-  ring:main(M, N),
+  ring:ring(M, N),
   Result = dbg_wait_for_result(M,N),
   dbg_stop_tracing(),
   Result.

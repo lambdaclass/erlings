@@ -1,19 +1,8 @@
 # Ring benchmark
 
 ## Problem
-Create N process in a ring. Send a message round the ring M times so
-that a total of N * M messages get sent. Time how long this takes
-for different values of N and M.
+Write a function `ring:ring/2` which takes 2 arguments: M and N.
+This function should create N process in a ring in such a way
+that sending a message to the first process it get passed around
+the ring M times so that a total of N * M messages get sent.
 
-
-## Solution
-Run `./run <n-processes> <m-messages>` to see the results. In my case:
-
-~~~
-./run 20 20
-Processes:20, Messages:20 in 90ms
-./run 20 200
-Processes:20, Messages:200 in 787ms
-./run 200 200
-Processes:200, Messages:200 in 7998ms
-~~~

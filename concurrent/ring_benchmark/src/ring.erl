@@ -1,5 +1,5 @@
 -module(ring).
--export([main/2]).
+-export([ring/2]).
 
 node_loop(Parent) ->
   receive
@@ -11,7 +11,7 @@ node_loop(Parent) ->
   end.
 
 % N processes, M messages
-main(N, M) ->
+ring(N, M) ->
   [FirstNode | Nodes] = create_processes(N, M),
   BeforeFistMessage = os:timestamp(),
   FirstNode ! {msg, Nodes},
