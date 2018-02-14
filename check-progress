@@ -1,0 +1,51 @@
+#!/usr/bin/env escript
+%% -*- erlang -*-
+%%! -smp enable -sname factorial -mnesia debug verbose
+
+main(_) ->
+  Folders = exercise_folders(),
+  run_tests(Folders, 1, length(Folders)).
+
+run_tests([], _, _) ->
+  io:format("All tests completed"),
+  true;
+run_tests([Folder | MoreFolders], CurrentCount, TotalCount) ->
+  case run_make_on_folder(Folder) of
+    true ->
+      run_tests(MoreFolders, CurrentCount + 1, TotalCount);
+    false ->
+      print_failure(Folder, CurrentCount, TotalCount)
+  end.
+
+print_failure(Folder, CurrentCount, TotalCount) ->
+  io:format("exercise `~s` failed~n", [Folder]),
+  io:format("review it, you may be closer than you thing,~n",[]),
+  io:format("progress: ~p/~p~n", [CurrentCount-1, TotalCount]).
+
+run_make_on_folder(Folder) ->
+  Output = cmd(Folder, "make"),
+  string:str(Output, "0 failures") > 0.
+
+cmd(Folder, Command) ->
+  file:set_cwd(Folder),
+  Output = os:cmd(Command),
+  file:set_cwd("../"),
+  Output.
+
+exercise_folders() ->
+  lists:append(
+    [
+     in_folder("sequential", ["installing", "hello", "hello_pattern",
+                              "filter_powers_of_2", "reverse",
+                              "rmconsecutive", "even_fib_numbers",
+                              "reduce", "rotatelist", "run_length_encoding",
+                              "bank_accounts", "insert_element_at",
+                              "list_to_map", "calculate_bmi",
+                              "mapping_a_map", "merge_map"]),
+     in_folder("concurrent", ["priority", "ring_benchmark"]),
+     in_folder("otp", ["shortly"]),
+     in_folder("distributed", ["remote_fun"])
+    ]).
+
+in_folder(Folder, SubFolders) ->
+  [Folder ++ "/" ++ SubFolder || SubFolder <- SubFolders].
