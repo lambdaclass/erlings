@@ -1,5 +1,5 @@
 -module(ring).
--export([main/1]).
+-export([main/2]).
 
 node_loop(Parent) ->
   receive
@@ -11,9 +11,7 @@ node_loop(Parent) ->
   end.
 
 % N processes, M messages
-main([NArg, MArg]) ->
-  N = arg_to_number(NArg),
-  M = arg_to_number(MArg),
+main(N, M) ->
   [FirstNode | Nodes] = create_processes(N, M),
   BeforeFistMessage = os:timestamp(),
   FirstNode ! {msg, Nodes},
@@ -29,8 +27,3 @@ create_processes(N, M) ->
   Processes = [spawn_link(fun () -> node_loop(Parent) end)
                || _ <- lists:seq(1, N)],
   lists:append(lists:duplicate(M, Processes)).
-
-arg_to_number(Arg) ->
-    Str = atom_to_list(Arg),
-    {Int, _} =string:to_integer(Str),
-    Int.
