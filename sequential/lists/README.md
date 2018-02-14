@@ -72,6 +72,7 @@ Example:
 ``` erlang
 list:run_length_encode([a,a,a,a,b,c,c,a,a,d,e,e,e,e]).
 %%[[4,a],[1,b],[2,c],[2,a],[1,d],[4,e]]
+```
 
 [solution](solution/run_length_encoding.erl)
 
@@ -83,19 +84,28 @@ Implement `foldl/3` and `foldl/2` using recursion (see [Erlang foldl reference](
 
 Example:
 ``` erlang
-reduce:foldl(fun(X, Y) -> X + Y end, 0, [1, 2, 3, 4]).
+list:foldl(fun(X, Y) -> X + Y end, 0, [1, 2, 3, 4]).
 %% 10
 
-reduce:foldl(fun(X, Y) -> X * Y end, [1, 2, 3]).
+list:foldl(fun(X, Y) -> X * Y end, [1, 2, 3]).
 %% 6
 
-reduce:foldl(func(X, Y) -> X andalso Y, [true, false, true]).
+list:foldl(func(X, Y) -> X andalso Y, [true, false, true]).
 %% false
 ```
 [solution](solution/reduce.erl)
 
 ### Any
 Write a function `list_any/2` that takes a predicate (a function that returns a boolean value) and a list and returns true if any element of the list satisfies the predicate and false otherwise.
+
+Example:
+``` erlang
+list:any(fun(X) -> X > 3 end, [4, 2, 0]).
+%% true
+
+list:any(fun(X) -> X == 0 end, [1, 2, 3]).
+%% false
+```
 
 Note: Implement it without using `lists:any`.
 
