@@ -6,3 +6,5 @@ This function should create N process in a ring in such a way
 that sending a message to the first process it get passed around
 the ring M times so that a total of N * M messages get sent.
 
+In case you need any guidance please check our
+[proposed solution](solution/ring.erl).
