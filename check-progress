@@ -24,23 +24,27 @@ print_failure(Folder, CurrentCount, TotalCount) ->
 
 run_make_on_folder(Folder) ->
   Output = cmd(Folder, "make"),
-  string:str(Output, "ALL TESTS PASSED") > 0.
+  string:str(Output, "0 failures") > 0.
 
 cmd(Folder, Command) ->
-  Cmd = io_lib:format("cd ~s && ~s", [Folder, Command]),
-  CmdString = binary_to_list(iolist_to_binary(Cmd)),
-  os:cmd(CmdString).
+  file:set_cwd(Folder),
+  Output = os:cmd(Command),
+  file:set_cwd("../"),
+  Output.
 
 exercise_folders() ->
   lists:append(
     [
      in_folder("sequential", ["installing", "hello", "hello_pattern",
-                              "lists", "filter_powers_of_2", "bank_accounts",
-                              "insert_element_at", "calculate_bmi",
-                              "maps"]),
-     %in_folder("concurrent", ["priority", "ring_benchmark"]),
-     in_folder("otp", ["shortly"])
-     %in_folder("distributed", ["remote_fun"])
+                              "filter_powers_of_2", "reverse",
+                              "rmconsecutive", "even_fib_numbers",
+                              "reduce", "rotatelist", "run_length_encoding",
+                              "bank_accounts", "insert_element_at",
+                              "list_to_map", "calculate_bmi",
+                              "mapping_a_map", "merge_map"]),
+     in_folder("concurrent", ["priority", "ring_benchmark"]),
+     in_folder("otp", ["shortly"]),
+     in_folder("distributed", ["remote_fun"])
     ]).
 
 in_folder(Folder, SubFolders) ->
