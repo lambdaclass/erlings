@@ -6,16 +6,15 @@ source: http://www.erlang.org/
 
 One of the most important parts of any learning process it the resolution of practical problems by one self, but is hard when you don't have anything to guide you or something to compare with.
 
-- [Your main reference book](http://learnyousomeerlang.com/content)
-
 ## Exercises
+The exercises are divided in 5 sections. Click one to start!
 
-### [Sequential Programming](sequential/)
+### [1. Sequential Programming](sequential/)
 
-### [Concurrent Programming](concurrent/)
+### [2. Concurrent Programming](concurrent/)
 
-### [Distributed Programming](distributed/)
+### [3. Distributed Programming](distributed/)
 
-### [OTP](otp/)
+### [4. OTP](otp/)
 
-### [Libraries](libraries/)
+### [5. Libraries](libraries/)
