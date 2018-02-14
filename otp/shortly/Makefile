@@ -9,3 +9,4 @@ server:
 test:
 	./rebar3 eunit
 	./rebar3 ct
+	echo "ALL TESTS PASSED"

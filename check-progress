@@ -24,7 +24,7 @@ print_failure(Folder, CurrentCount, TotalCount) ->
 
 run_make_on_folder(Folder) ->
   Output = cmd(Folder, "make"),
-  string:str(Output, "0 failures") > 0.
+  string:str(Output, "ALL TESTS PASSED") > 0.
 
 cmd(Folder, Command) ->
   Cmd = io_lib:format("cd ~s && ~s", [Folder, Command]),
@@ -38,9 +38,9 @@ exercise_folders() ->
                               "lists", "filter_powers_of_2", "bank_accounts",
                               "insert_element_at", "calculate_bmi",
                               "maps"]),
-     in_folder("concurrent", ["priority", "ring_benchmark"]),
-     in_folder("otp", ["shortly"]),
-     in_folder("distributed", ["remote_fun"])
+     %in_folder("concurrent", ["priority", "ring_benchmark"]),
+     in_folder("otp", ["shortly"])
+     %in_folder("distributed", ["remote_fun"])
     ]).
 
 in_folder(Folder, SubFolders) ->
