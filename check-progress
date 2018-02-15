@@ -38,7 +38,7 @@ exercise_folders() ->
                               "lists", "filter_powers_of_2", "bank_accounts",
                               "insert_element_at", "calculate_bmi",
                               "maps"]),
-     %in_folder("concurrent", ["priority", "ring_benchmark"]),
+     in_folder("concurrent", ["ring_benchmark"]),
      in_folder("otp", ["shortly"])
      %in_folder("distributed", ["remote_fun"])
     ]).
