@@ -2,4 +2,4 @@
 
 ## Exercises
 
-
+* [shortly](shortly/)
