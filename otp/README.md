@@ -8,4 +8,4 @@ Relevant chapters in Learn You Some Erlang:
 
 #### OTP
 [Relevant chapter in Learn You Some Erlang](http://learnyousomeerlang.com/what-is-otp)
-* [Shortly](shortly/)
+* [Shopping Cart](shopping_cart/)
