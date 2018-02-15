@@ -12,6 +12,7 @@
 	 handle_cast/2
         ]).
 
+%% Client functions
 start_link() ->
      gen_server:start_link(?MODULE, [], []).
 

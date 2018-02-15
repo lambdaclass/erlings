@@ -14,5 +14,3 @@ shopping_cart_calculate_cost_test() ->
     shopping_cart:put_item(Pid, Apple),
     Cost = shopping_cart:cost_so_far(Pid),
     ?assertEqual(Cost, 2).
-
-

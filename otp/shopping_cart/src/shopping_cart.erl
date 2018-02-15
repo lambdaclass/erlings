@@ -19,4 +19,3 @@ cost_so_far(Pid) ->
 
 finish(Pid) ->
     put_your_solution_here.
-
