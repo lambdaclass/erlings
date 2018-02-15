@@ -13,6 +13,7 @@ So, using a [gen_server](http://erlang.org/doc/man/gen_server.html), write the f
 * `finish/1`: Print the total price and finishes the shopping cart.
 
 * All the functions required by the behaviour.
+
 Example:
 ``` erlang
 {ok, Pid} = shopping_cart:start_link().
