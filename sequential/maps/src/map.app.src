@@ -1,0 +1,16 @@
+{application, map,
+ [{description, "map"},
+  {vsn, "0.1.0"},
+  {registered, []},
+  {mod, { map_app, []}},
+  {applications,
+   [kernel,
+    stdlib
+   ]},
+  {env,[]},
+  {modules, []},
+
+  {maintainers, []},
+  {licenses, ["MIT"]},
+  {links, []}
+ ]}.
