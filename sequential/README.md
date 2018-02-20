@@ -8,7 +8,7 @@
 
 #### First steps
 [Relevant chapter in Learn You Some Erlang](http://learnyousomeerlang.com/starting-out-for-real)
-* [Filter Powers of 2](filter_powers_of_2/)
+* [Filter Fibonacci Numbers](filter_fibonacci_numbers/)
 
 #### Modules
 [Relevant chapter in Learn You Some Erlang](http://learnyousomeerlang.com/modules)

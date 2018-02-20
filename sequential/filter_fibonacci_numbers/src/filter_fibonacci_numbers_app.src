@@ -1,8 +1,8 @@
-{application, filter_powers_of_2,
- [{description, "filter_powers_of_2"},
+{application, filter_fibonacci_numbers,
+ [{description, "filter_fibonacci_numbers"},
   {vsn, "0.1.0"},
   {registered, []},
-  {mod, { filter_powers_of_2_app, []}},
+  {mod, { filter_fibonacci_numbers_app, []}},
   {applications,
    [kernel,
     stdlib
