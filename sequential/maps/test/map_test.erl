@@ -1,5 +1,5 @@
 -module(map_test).
-
+-record(person, {name, age}).
 -include_lib("eunit/include/eunit.hrl").
 
 merge_map_empty_test() ->
@@ -30,3 +30,11 @@ list_to_map_test() ->
 
 list_to_map_empty_test() ->
     ?assertEqual(#{}, map:to_map([])).
+
+records_to_maps_test() ->
+    Records = [#person{name="Pepe", age=28}, #person{name="Luis", age=77}],
+    Maps = [#{age => 28,name => "Pepe"}, #{age => 77,name => "Luis"}],
+    ?assertEqual(Maps, map:records_to_maps(Records)).
+
+records_to_maps_empty_test() ->
+    ?assertEqual([], map:records_to_maps([])).

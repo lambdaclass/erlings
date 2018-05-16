@@ -46,3 +46,18 @@ to_map([]).
 %% #{}
 ```
 [solution](src/solution/list_to_map.erl).
+
+### Records to Maps
+
+Create a record named `person` that has the attributes `name` and `age`. Then write a function `map:records_to_maps(Records)` that converts a list of records (in this case people) into a list of maps with the attributes. For this you should use `lists:map`.
+
+Example:
+```erlang
+map:records_to_maps([]).
+%% []
+
+map:records_to_maps([#person{name="Pepe", age=28}, #person{name="Luis", age=77}]).
+%% [#{age => 28,name => "Pepe"},#{age => 77,name => "Luis"}]
+```
+
+[solution](src/solution/records_to_maps.erl).

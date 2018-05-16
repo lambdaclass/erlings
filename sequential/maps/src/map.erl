@@ -10,3 +10,6 @@ mapping_a_map(Function, Map) ->
 
 merge_map(M1, M2) ->
     put_your_solution_here.
+
+records_to_maps(Records) ->
+		put_your_solution_here.
