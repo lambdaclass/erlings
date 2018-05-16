@@ -72,7 +72,7 @@ map:maps_to_records([]).
 %% []
 
 map:maps_to_records([#{age => 28,name => "Pepe"},#{age => 77,name => "Luis"}]).
-%% [#{age => 77,name => "Luis"}, #{age => 28,name => "Pepe"}]
+%% [#person{name = "Luis",age = 77}, #person{name = "Pepe",age = 28}]
 ```
 
 [solution](src/solution/maps_to_records.erl).
@@ -80,6 +80,8 @@ map:maps_to_records([#{age => 28,name => "Pepe"},#{age => 77,name => "Luis"}]).
 ### Proplist to Map
 
 Write a recursive function `proplist_to_map/1` that takes a proplist (a list of tuples) and builds a map from it. Use the first component of each tuple as the key and the second component as the value.
+
+**DISCLAIMER** Erlang provides functions for this exact task: `maps:from_list` and `maps:to_list`.
 
 Example:
 ```erlang
