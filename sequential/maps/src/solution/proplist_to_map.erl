@@ -3,4 +3,6 @@
 
 
 proplist_to_map(Proplist) ->
-		lists:foldl(fun({K, V}, Map) -> Map#{K => V} end, #{}, Proplist).
+		lists:foldl(fun({K, V}, Map) ->
+									Map#{K => V} end,
+								#{}, Proplist).

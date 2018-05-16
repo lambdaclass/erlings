@@ -3,4 +3,6 @@
 -record(person, {name, age}).
 
 records_to_maps(Records) ->
-	lists:map(fun(#person{name=Name, age=Age}) -> #{name => Name, age => Age} end, Records).
+	lists:map(fun(#person{name = Name, age = Age}) ->
+							#{name => Name, age => Age} end,
+						Records).
