@@ -38,3 +38,11 @@ records_to_maps_test() ->
 
 records_to_maps_empty_test() ->
     ?assertEqual([], map:records_to_maps([])).
+
+maps_to_records_test() ->
+    Records = [#person{name="Pepe", age=28}, #person{name="Luis", age=77}],
+    Maps = [#{age => 77,name => "Luis"}, #{age => 28,name => "Pepe"}],
+    ?assertEqual(Records, map:maps_to_records(Maps)).
+
+maps_to_records_empty_test() ->
+    ?assertEqual([], map:maps_to_records([])).

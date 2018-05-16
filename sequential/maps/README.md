@@ -61,3 +61,18 @@ map:records_to_maps([#person{name="Pepe", age=28}, #person{name="Luis", age=77}]
 ```
 
 [solution](src/solution/records_to_maps.erl).
+
+### Maps to Records
+
+Create a record named `person` that has the attributes `name` and `age`. Then write a function `map:maps_to_records(Records)` that converts a list of maps into a list of records (in this case people). For this you should only use recursion.
+
+Example:
+```erlang
+map:maps_to_records([]).
+%% []
+
+map:maps_to_records([#{age => 28,name => "Pepe"},#{age => 77,name => "Luis"}]).
+%% [#{age => 77,name => "Luis"}, #{age => 28,name => "Pepe"}]
+```
+
+[solution](src/solution/maps_to_records.erl).

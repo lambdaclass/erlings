@@ -13,3 +13,6 @@ merge_map(M1, M2) ->
 
 records_to_maps(Records) ->
 		put_your_solution_here.
+
+maps_to_records(Maps) ->
+		put_your_solution_here.
