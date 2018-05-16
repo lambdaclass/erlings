@@ -46,3 +46,11 @@ maps_to_records_test() ->
 
 maps_to_records_empty_test() ->
     ?assertEqual([], map:maps_to_records([])).
+
+proplist_to_map_test() ->
+    Proplist = [{firstname, "Pedro"}, {lastname, "Sanches"}, {age, 11}],
+    Map = #{age => 11,firstname => "Pedro",lastname => "Sanches"},
+    ?assertEqual(Map, map:proplist_to_map(Proplist)).
+
+proplist_to_map_empty_test() ->
+    ?assertEqual(#{}, map:proplist_to_map([])).

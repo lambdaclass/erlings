@@ -16,3 +16,6 @@ records_to_maps(Records) ->
 
 maps_to_records(Maps) ->
 		put_your_solution_here.
+
+proplist_to_map(Proplist) ->
+		put_your_solution_here.
