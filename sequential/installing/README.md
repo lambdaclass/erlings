@@ -9,11 +9,13 @@ real coding. We will need some software:
 - Ensure that you have [Make](https://en.wikipedia.org/wiki/Make_(software))
   installed and running.
 
-Run `make` and if you get an output similar to this one, everything
-should be fine.
+### Checking environment
+
+1. Clone this repo `$> git clone https://github.com/lambdaclass/erlings.git`.
+2. Change into the this directory (assuming you cloned into your home) `$> cd ~/erlings/sequential/installing/`.
+3. Run `$> make` and if you get an output similar to this one, everything should be fine.
 
 ~~~
-installing ─╼ make
 rebar3 eunit
 ===> Verifying dependencies...
 ===> Compiling installing
