@@ -11,9 +11,15 @@ real coding. We will need some software:
 
 ### Checking environment
 
-1. Clone this repo `$> git clone https://github.com/lambdaclass/erlings.git`.
-2. Change into the this directory (assuming you cloned into your home) `$> cd ~/erlings/sequential/installing/`.
-3. Run `$> make` and if you get an output similar to this one, everything should be fine.
+To check your environment do the following:
+
+~~~
+$> git clone https://github.com/lambdaclass/erlings.git
+$> cd ~/erlings/sequential/installing
+$> make
+~~~
+
+You should get the following output:
 
 ~~~
 rebar3 eunit
