@@ -1,4 +1,4 @@
--module(map).
+-module(maps_exercises).
 
 -export([list_to_map/1]).
 
