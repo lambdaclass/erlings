@@ -2,7 +2,7 @@
 -export([start_calculator/0,
          calculator_server/0,
          add/3,
-         substract/3,
+         subtract/3,
          multiply/3,
          divide/3,
          turn_off/1]).
@@ -20,8 +20,8 @@ send_operation(Pid, Operation, Numbers) ->
 add(Pid, X, Y) ->
   send_operation(Pid, add, {X, Y}).
 
-substract(Pid, X, Y) ->
-  send_operation(Pid, substract, {X, Y}).
+subtract(Pid, X, Y) ->
+  send_operation(Pid, subtract, {X, Y}).
 
 multiply(Pid, X, Y) ->
   send_operation(Pid, multiply, {X, Y}).
@@ -33,7 +33,7 @@ calculator_server() ->
   receive
     {From, add, {X, Y}} ->
       From ! X + Y;
-    {From, substract, {X, Y}} ->
+    {From, subtract, {X, Y}} ->
       From ! X - Y;
     {From, multiply, {X, Y}} ->
       From ! X * Y;

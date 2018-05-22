@@ -13,7 +13,7 @@ You will write a simple calculator (sum, substraction, multiplication, and divis
 - `calculator_server/0`: It will receive through messages the operation to execute and its arguments, and send back the result.
 - `turn_off/1`: Shuts down the calculator server.
 
-This is the bare minimum you need to make a working example, but we won't stop there so will use what you learned in ["We Love Messages, but we keep them secret"](http://learnyousomeerlang.com/more-on-multiprocessing#secret-messages) to abstract everything to simple functions the user can use without knowing about underlying protocol. For this create the functions: `add/3, substract/3, multiply/3, divide/3`. This functions will receive as input PID and a tuple contaning the two numbers to operate on, send the message to the calculator server, and return the result.
+This is the bare minimum you need to make a working example, but we won't stop there so will use what you learned in ["We Love Messages, but we keep them secret"](http://learnyousomeerlang.com/more-on-multiprocessing#secret-messages) to abstract everything to simple functions the user can use without knowing about underlying protocol. For this create the functions: `add/3, subtract/3, multiply/3, divide/3`. This functions will receive as input PID and a tuple contaning the two numbers to operate on, send the message to the calculator server, and return the result.
 
 ```erlang
 1> Cal = calculator:start_calculator().
@@ -22,7 +22,7 @@ This is the bare minimum you need to make a working example, but we won't stop t
 2> calculator:add(Cal, 1, 3).
 4
 
-3> calculator:substract(Cal, 1, 3).
+3> calculator:subtract(Cal, 1, 3).
 -2
 
 4> calculator:multiply(Cal, 7, 3).
