@@ -1,6 +1,6 @@
 # Bank Accounts
 
-Create a function `bank_account:process_operation(Bank, Operation)` that takes a bank (a list of accounts: `{AccountNumber, AmountOfMoney}`) and an operation (a tuple `{AccountNumber, Operation_Type, Amount}`, see below) and process it, returning the resulting account.
+Create a function `bank_accounts:process_operation/2` that takes a bank (a list of accounts: `{AccountNumber, AmountOfMoney}`) and an operation (a tuple: `{AccountNumber, Operation_Type, Amount}`) and process it, returning the resulting account.
 
 #### Operations
 There are two kind of operations: `withdraw` and `deposit`.
@@ -8,10 +8,10 @@ There are two kind of operations: `withdraw` and `deposit`.
 #### Examples
 
 ``` erlang
-process_operation([{1, 100}, {2, 45}], {1, withdraw, 25}).
+1> bank_accounts:process_operation([{1, 100}, {2, 45}], {1, withdraw, 25}).
 %% {1, 75}
 
-process_operation([{1, 100}, {2, 45}], {2, deposit, 15}).
+2> process_operation([{1, 100}, {2, 45}], {2, deposit, 15}).
 %% {2, 60}
 ```
 
@@ -23,14 +23,14 @@ process_operation([{1, 100}, {2, 45}], {2, deposit, 15}).
 #### Examples
 
 ``` erlang
-process_operation([{1, 100}, {2, 45}], {7, deposit, 55}).
+1> bank_accounts:process_operation([{1, 100}, {2, 45}], {7, deposit, 55}).
 %% {error, account_not_found}
 
-process_operation([{1, 100}, {2, 45}], {2, withdraw, 100}).
+2> bank_accounts:process_operation([{1, 100}, {2, 45}], {2, withdraw, 100}).
 %% {error, insufficient_funds}
 ```
 
-Run tests with ``make``.
+Run tests with `$> make`.
 
 As a hint, the file you should be editing is `src/bank_accounts.erl`. But in any
 case if the things get difficult you can check our [proposed solution](solution/bank_accounts.erl).

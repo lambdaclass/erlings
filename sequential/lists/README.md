@@ -10,11 +10,11 @@ that concept, a good place to start can be [Wikipedia for theory](https://en.wik
 and [Learn some erlang](http://learnyousomeerlang.com/recursion) for the practical part.
 
 This exercise consists in creating the function `reverse/1` which should be
-[Tail Recursive](https://stackoverflow.com/questions/33923/what-is-tail-recursion), and take a list as argument and return another list with every element in the opposed position. 
+[Tail Recursive](https://stackoverflow.com/questions/33923/what-is-tail-recursion), and take a list as argument and return another list with every element in the opposed position.
 
 Example:
 ``` erlang
-list:reverse([1, 2, 3, 4]).
+1> list:reverse([1, 2, 3, 4]).
 %% [4, 3, 2, 1]
 ```
 [solution](src/solution/reverse.erl)
@@ -25,7 +25,7 @@ another one but without any consecutive repetitions.
 
 Example:
 ``` erlang
-rmconsecutive([1,1,1,2,3,4,1,1,1,3]).
+1> rmconsecutive([1,1,1,2,3,4,1,1,1,3]).
 %% [1, 2, 3, 4, 1, 3]
 ```
 [solution](src/solution/rmconsecutive.erl)
@@ -44,13 +44,13 @@ Implement `list:foldl/3` and `list:foldl/2` using recursion (see [Erlang foldl r
 
 Example:
 ``` erlang
-list:foldl(fun(X, Y) -> X + Y end, 0, [1, 2, 3, 4]).
+1> list:foldl(fun(X, Y) -> X + Y end, 0, [1, 2, 3, 4]).
 %% 10
 
-list:foldl(fun(X, Y) -> X * Y end, [1, 2, 3]).
+2> list:foldl(fun(X, Y) -> X * Y end, [1, 2, 3]).
 %% 6
 
-list:foldl(func(X, Y) -> X andalso Y, [true, false, true]).
+3> list:foldl(func(X, Y) -> X andalso Y, [true, false, true]).
 %% false
 ```
 [solution](src/solution/reduce.erl)
@@ -65,7 +65,7 @@ list `n` positions. It should take 2 arguments:
 
 Example:
 ``` erlang
-list:rotate([1, 2, 3, 4, 5], {right, 2}).
+1> list:rotate([1, 2, 3, 4, 5], {right, 2}).
 %% [3,4,5,1,2]
 ```
 [solution](src/solution/rotate_list.erl)
@@ -76,7 +76,7 @@ Implement the so-called run-length encoding data compression method. Consecutive
 Example:
 
 ``` erlang
-list:run_length_encode([a,a,a,a,b,c,c,a,a,d,e,e,e,e]).
+1> list:run_length_encode([a,a,a,a,b,c,c,a,a,d,e,e,e,e]).
 %%[[4,a],[1,b],[2,c],[2,a],[1,d],[4,e]]
 ```
 [solution](src/solution/run_length_encoding.erl)
@@ -90,10 +90,10 @@ Note: Implement it without using `lists:any`.
 
 Example:
 ``` erlang
-list:any(fun(X) -> X > 3 end, [4, 2, 0]).
+1> list:any(fun(X) -> X > 3 end, [4, 2, 0]).
 %% true
 
-list:any(fun(X) -> X == 0 end, [1, 2, 3]).
+2> list:any(fun(X) -> X == 0 end, [1, 2, 3]).
 %% false
 ```
 [solution](src/solution/any.erl)
