@@ -1,3 +1,6 @@
 language: erlang
-otp_releases:
+otp_release:
   - 20.0
+
+script:
+  - make test
