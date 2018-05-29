@@ -3,4 +3,4 @@
 -export([filter/1]).
 
 filter(List) ->
-    put_your_solution_here.
+  put_your_solution_here.

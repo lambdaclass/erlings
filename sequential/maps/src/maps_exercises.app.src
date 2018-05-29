@@ -1,8 +1,8 @@
-{application, map,
- [{description, "map"},
+{application, maps_exercises,
+ [{description, "maps_exercises"},
   {vsn, "0.1.0"},
   {registered, []},
-  {mod, { map_app, []}},
+  {mod, { maps_exercises_app, []}},
   {applications,
    [kernel,
     stdlib
