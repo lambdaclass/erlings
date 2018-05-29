@@ -2,4 +2,5 @@
 
 -export([insert/3]).
 
-insert(_List, _Pos, _Element) -> believe_in_yourself.
+insert(_List, _Pos, _Element) ->
+  believe_in_yourself.

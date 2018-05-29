@@ -5,7 +5,7 @@
 -include("../src/person_record.hrl").
 
 bmi(Person) ->
-    put_your_solution_here.
+  put_your_solution_here.
 
 classify(Person) ->
-    put_your_solution_here.
+  put_your_solution_here.
