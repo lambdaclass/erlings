@@ -1,8 +1,8 @@
-{application, lists,
- [{description, "lists"},
+{application, lists_exercises,
+ [{description, "lists_exercises"},
   {vsn, "0.1.0"},
   {registered, []},
-  {mod, { lists_app, []}},
+  {mod, { lists_exercises_app, []}},
   {applications,
    [kernel,
     stdlib

@@ -6,7 +6,7 @@ Then, write `calculate_bmi:classify/1` to classify a person according to her BMI
 
 * `underweight`: when the BMI is less than 18.5.
 
-* `normal`: when the BMI greater than 18.5 and less than 25. 
+* `normal`: when the BMI is greater than 18.5 and less than 25.
 
 * `overweight`: when the BMI is between 25 and 30.
 
@@ -14,10 +14,10 @@ Then, write `calculate_bmi:classify/1` to classify a person according to her BMI
 
 #### Examples
 ``` erlang
-calculate_bmi:bmi(#person{name = "Maria", weight = 60, height = 1.6}).
+1> calculate_bmi:bmi(#person{name = "Maria", weight = 60, height = 1.6}).
 %% 23.437499999999996
 
-calculate_bmi:classify(#person{name = "Maria", weight = 60, height = 1.6}).
+2> calculate_bmi:classify(#person{name = "Maria", weight = 60, height = 1.6}).
 %% normal
 ```
 
