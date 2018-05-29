@@ -1,0 +1,16 @@
+{application, bank_account,
+ [{description, "bank_account"},
+  {vsn, "0.1.0"},
+  {registered, []},
+  {mod, { bank_account_app, []}},
+  {applications,
+   [kernel,
+    stdlib
+   ]},
+  {env,[]},
+  {modules, []},
+
+  {maintainers, []},
+  {licenses, ["MIT"]},
+  {links, []}
+ ]}.

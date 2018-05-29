@@ -1,0 +1,16 @@
+{application, calculate_bmi,
+ [{description, "calculate_bmi"},
+  {vsn, "0.1.0"},
+  {registered, []},
+  {mod, { calculate_bmi_app, []}},
+  {applications,
+   [kernel,
+    stdlib
+   ]},
+  {env,[]},
+  {modules, []},
+
+  {maintainers, []},
+  {licenses, ["MIT"]},
+  {links, []}
+ ]}.
