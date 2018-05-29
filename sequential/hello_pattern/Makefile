@@ -1,4 +1,7 @@
-.PHONY: test
+.PHONY: test user
+
+user:
+	rebar3 as user eunit
 
 test:
-	rebar3 eunit
+	rebar3 as travis eunit
