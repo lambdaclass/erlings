@@ -1,4 +1,4 @@
--module(bank_accounts).
+-module(bank_account).
 
 -export([process_operation/2]).
 
