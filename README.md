@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/lambdaclass/erlings.svg?branch=master)](https://travis-ci.org/lambdaclass/erlings)
+
 # Erlings: Small exercises to get you used to reading and writing Erlang code
 
 source: http://www.erlang.org/
