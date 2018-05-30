@@ -1,12 +1,16 @@
-SUBDIRS = sequential
+DIRS = $(filter-out _build/, $(dir $(wildcard */)))
 
-.PHONY: test user $(SUBDIRS)
+EXERCISES = $(patsubst %/, %, $(filter-out $(DIRS), $(dir $(wildcard */*/))))
+CATEGORIES = $(subst /, , $(DIRS))
 
-user: TARGET = user
-user: $(SUBDIRS)
+PROFILE ?= test
 
-test: TARGET = test
-test: $(SUBDIRS)
+.PHONY: test $(CATEGORIES) $(EXERCISES)
 
-$(SUBDIRS):
-	$(MAKE) -C $@ $(TARGET)
+test: $(CATEGORIES)
+
+.SECONDEXPANSION:
+$(CATEGORIES): $$(filter $$@%, $(EXERCISES))
+
+$(EXERCISES):
+	cd $@ && ../../rebar3 as $(PROFILE) eunit
