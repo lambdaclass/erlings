@@ -1,0 +1,16 @@
+{application, shopping_cart,
+ [{description, "shopping_part"},
+  {vsn, "0.1.0"},
+  {registered, []},
+  {mod, { shopping_cart_app, []}},
+  {applications,
+   [kernel,
+    stdlib
+   ]},
+  {env,[]},
+  {modules, []},
+
+  {maintainers, []},
+  {licenses, ["MIT"]},
+  {links, []}
+ ]}.
