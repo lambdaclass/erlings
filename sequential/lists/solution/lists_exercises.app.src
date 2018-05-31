@@ -1,0 +1,16 @@
+{application, lists_exercises,
+ [{description, "lists_exercises"},
+  {vsn, "0.1.0"},
+  {registered, []},
+  {mod, { lists_exercises_app, []}},
+  {applications,
+   [kernel,
+    stdlib
+   ]},
+  {env,[]},
+  {modules, []},
+
+  {maintainers, []},
+  {licenses, ["MIT"]},
+  {links, []}
+ ]}.

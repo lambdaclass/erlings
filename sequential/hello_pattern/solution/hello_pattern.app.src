@@ -1,0 +1,16 @@
+{application, hello_pattern,
+ [{description, "hello_pattern"},
+  {vsn, "0.1.0"},
+  {registered, []},
+  {mod, { hello_pattern_app, []}},
+  {applications,
+   [kernel,
+    stdlib
+   ]},
+  {env,[]},
+  {modules, []},
+
+  {maintainers, []},
+ {licenses, ["MIT"]},
+  {links, []}
+ ]}.

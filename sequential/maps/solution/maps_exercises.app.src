@@ -1,0 +1,16 @@
+{application, maps_exercises,
+ [{description, "maps_exercises"},
+  {vsn, "0.1.0"},
+  {registered, []},
+  {mod, { maps_exercises_app, []}},
+  {applications,
+   [kernel,
+    stdlib
+   ]},
+  {env,[]},
+  {modules, []},
+
+  {maintainers, []},
+  {licenses, ["MIT"]},
+  {links, []}
+ ]}.

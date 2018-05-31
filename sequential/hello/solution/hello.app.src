@@ -1,0 +1,16 @@
+{application, hello,
+ [{description, "hello"},
+  {vsn, "0.1.0"},
+  {registered, []},
+  {mod, { hello_app, []}},
+  {applications,
+   [kernel,
+    stdlib
+   ]},
+  {env,[]},
+  {modules, []},
+
+  {maintainers, []},
+  {licenses, ["MIT"]},
+  {links, []}
+ ]}.
