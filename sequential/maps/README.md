@@ -1,8 +1,11 @@
 # Maps
 
-[Relevant chapter in Learn You Some Erlang](http://learnyousomeerlang.com/maps)
+## Reading Material
+
+- [Learn You Some Erlang: Maps](http://learnyousomeerlang.com/maps)
 
 ## Exercises
+
 ### Merge Map
 
 Write a function `maps_exercises:merge/2` that merges 2 maps, if they have a key in common, keep the value from the second map.

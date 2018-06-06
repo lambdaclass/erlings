@@ -1,5 +1,10 @@
-Installing
---------
+# Installing
+
+## Reading Material
+
+- [Learn You Some Erlang: Introduction](http://learnyousomeerlang.com/introduction)
+
+## Requirements
 
 In this exercise we will setup our environment before we start our
 real coding. We will need some software:
@@ -9,7 +14,7 @@ real coding. We will need some software:
 - Ensure that you have [Make](https://en.wikipedia.org/wiki/Make_(software))
   installed and running.
 
-### Checking environment
+## Checking environment
 
 To check your environment do the following:
 

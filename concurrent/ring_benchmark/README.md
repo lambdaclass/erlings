@@ -1,6 +1,8 @@
 # Ring benchmark
 
-## Problem
+## Reading Material
+
+## Exercise
 Write a function `ring:ring/2` which takes 2 arguments: M and N.
 This function should create N process in a ring in such a way
 that sending a message to the first process it get passed around

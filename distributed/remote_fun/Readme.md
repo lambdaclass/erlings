@@ -1,16 +1,23 @@
-# Remote function server
+# Remote Function Server
 
-## Problem
+## Reading material
+
+- [Learn you Some Erlang: Distribunomicon](http://learnyousomeerlang.com/distribunomicon)
+- [My favorite erlang program](https://joearms.github.io/published/2013-11-21-My-favorite-erlang-program.html)
+
+## Exercise
+
+### Problem
 Create an Erlang cluster with 2 nodes. One node is a server that just receives a function and become it.
 The other node sends a function the first and execute something remotely.
 
-## Solution
-The server (`remote_fun_server.erl`) receives a message as normal, and get the function from there. 
+### Solution
+The server (`remote_fun_server.erl`) receives a message as normal, and get the function from there.
 
 The client (`remote_fun_client.erl`) creates a function that is able to receive and loop, and also
 to be killed, then it's send to the server.
 
-### Running the solution
+#### Running the solution
 
 Run two terminals with ``make server`` and ``make client``.
 
@@ -36,7 +43,3 @@ After the connections are fine, you can test the functions with:
 Ok!
 ok
 ~~~
-
-## Reading material
-
-- [My favorite erlang program](https://joearms.github.io/published/2013-11-21-My-favorite-erlang-program.html)
