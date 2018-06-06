@@ -1,16 +1,17 @@
 # Lists
 
-## Recursion
-[Relevant chapter in Learn You Some Erlang](http://learnyousomeerlang.com/recursion)
+## Reading Material
+
+Recursion and high order functions can be tricky if you don't have a functional programming background, for that reason take your time to read and really understand the concepts.
+
+- [Recursion theory](https://en.wikipedia.org/wiki/Recursion_(computer_science))
+- [Learn You Some Erlang: Recursion](http://learnyousomeerlang.com/recursion)
+- [Learn You Some Erlang: Higher Order Functions](http://learnyousomeerlang.com/higher-order-functions)
+
+## Exercises
 
 ### Reverse
-Recursion can be tricky if you don't have a functional programming
-background, for that reason take your time to read and really understand
-that concept, a good place to start can be [Wikipedia for theory](https://en.wikipedia.org/wiki/Recursion_(computer_science)),
-and [Learn some erlang](http://learnyousomeerlang.com/recursion) for the practical part.
-
-This exercise consists in creating the function `lists_exercises:reverse/1` which should be
-[Tail Recursive](https://stackoverflow.com/questions/33923/what-is-tail-recursion), and take a list as argument and return another list with every element in the opposed position.
+This exercise consists in creating the function `lists_exercises:reverse/1` which should be [Tail Recursive](https://stackoverflow.com/questions/33923/what-is-tail-recursion), and take a list as argument and return another list with every element in the opposed position.
 
 Example:
 ``` erlang
@@ -20,8 +21,7 @@ Example:
 [solution](solution/lists_exercises.erl#L14-L17)
 
 ### Remove consecutive
-Create a function `lists_exercises:rmconsecutive/1` that takes a list and returns
-another one but without any consecutive repetitions.
+Create a function `lists_exercises:rmconsecutive/1` that takes a list and returns another one but without any consecutive repetitions.
 
 Example:
 ``` erlang
@@ -56,12 +56,10 @@ Example:
 [solution](solution/lists_exercises.erl#L65-L73)
 
 ### Rotate Lists
-Create a function `lists_exercises:rotate/2` that rotates the contents of a
-list `n` positions. It should take 2 arguments:
+Create a function `lists_exercises:rotate/2` that rotates the contents of a list `n` positions. It should take 2 arguments:
 
 - A list
-- A tuple of `{left, N}` or `{right, N}` that indicates the direction
-  and the size of the displacement expected.
+- A tuple of `{left, N}` or `{right, N}` that indicates the direction and the size of the displacement expected.
 
 Example:
 ``` erlang
@@ -80,9 +78,6 @@ Example:
 %%[[4,a],[1,b],[2,c],[2,a],[1,d],[4,e]]
 ```
 [solution](solution/lists_exercises.erl#L90-L103)
-
-## Higher Order Functions
-[Relevant chapter in Learn You Some Erlang](http://learnyousomeerlang.com/higher-order-functions)
 
 ### Any
 Write a function `lists_exercises:list_any/2` that takes a predicate (a function that returns a boolean value) and a list and returns true if any element of the list satisfies the predicate and false otherwise.

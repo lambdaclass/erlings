@@ -16,15 +16,47 @@ One of the most important parts of any learning process it the resolution of pra
 ## Exercises
 The exercises are divided in 5 sections. They are meant to be done as you read [Learn you some Erlang for great good](http://learnyousomeerlang.com/), but feel free to do them as you wish. Click one to start!
 
-### [1. Sequential Programming](sequential/)
+### Sequential Programming
 
-### [2. Concurrent Programming](concurrent/)
+1. [Installing](sequential/1installing/)
+1. [Filter Fibonacci Numbers](sequential/filter_fibonacci_numbers/)
+1. [Hello world](sequential/hello/)
+1. [Hello pattern](sequential/hello_pattern/)
+1. [Lists](sequential/lists/)
+   1. [Reverse](sequential/lists#reverse)
+   1. [Remove Consecutive](sequential/lists#remove-consecutive)
+   1. [Even Fibonacci Numbers](sequential/lists#even-fibonacci-numbers)
+   1. [Reduce](sequential/lists#reduce)
+   1. [Rotate Lists](sequential/lists#rotate-lists)
+   1. [Run-length Encoding of a List](sequential/lists#run-length-encoding-of-a-list)
+   1. [Any](sequential/lists#any)
+1. [Bank Accounts](sequential/bank_accounts/)
+1. [Calculate BMI](sequential/calculate_bmi/)
+1. [Insert element at position](sequential/insert_element_at/)
+1. [Maps](sequential/maps/)
+   1. [Mapping a Map](sequential/maps#mapping-a-map)
+   1. [Merge Map](sequential/maps#merge-map)
+   1. [List to Map](sequential/maps#list-to-map)
+   1. [Records to Maps](sequential/maps#records-to-maps)
+   1. [Maps to Records](sequential/maps#maps-to-records)
+   1. [Proplist to Map](sequential/maps#proplist-to-map)
 
-### [3. Distributed Programming](distributed/)
+### Concurrent Programming
 
-### [4. OTP](otp/)
+1. [Priority](concurrent/priority)
+1. [Ring Benchmark](concurrent/ring_benchmark)
 
-### [5. Libraries](libraries/)
+### OTP
+
+1. [Shopping Cart](otp/shopping_cart/)
+
+### Distributed Programming
+
+1. [Remote Function](distributed/remote_fun/)
+
+### Libraries
+
+1. [Shortly](libraries/shortly/)
 
 ## Down the Rabbit Hole
 

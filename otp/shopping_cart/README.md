@@ -1,7 +1,11 @@
-# OTP
+# Shopping Cart
 
-## Shopping Cart
-[Relevant chapter in Learn You Some Erlang](http://learnyousomeerlang.com/clients-and-servers)
+## Reading Material
+
+- [Learn You Some Erlang: What is OTP?](http://learnyousomeerlang.com/what-is-otp)
+- [Learn You Some Erlang: Clients and Servers](http://learnyousomeerlang.com/clients-and-servers)
+
+## Exercise
 
 In this exercise we are going to model a shopping cart. You can put items inside it (an item is just a tuple `{ItemName, Price}`) and ask him for the total cost of all the items.
 

@@ -1,5 +1,11 @@
 # Bank Accounts
 
+## Reading Material
+
+- [Learn You Some Erlang: Errors and Exceptions](http://learnyousomeerlang.com/errors-and-exceptions)
+
+## Exercise
+
 Create a function `bank_account:process_operation/2` that takes a bank (a list of accounts: `{AccountNumber, AmountOfMoney}`) and an operation (a tuple: `{AccountNumber, Operation_Type, Amount}`) and process it, returning the resulting account.
 
 #### Operations
@@ -32,5 +38,4 @@ There are two kind of operations: `withdraw` and `deposit`.
 
 Run tests with `$> make`.
 
-As a hint, the file you should be editing is `src/bank_account.erl`. But in any
-case if the things get difficult you can check our [proposed solution](solution/bank_account.erl).
+As a hint, the file you should be editing is `src/bank_account.erl`. But in any case if the things get difficult you can check our [proposed solution](solution/bank_account.erl).
