@@ -20,9 +20,9 @@ The exercises are divided in 5 sections. They are meant to be done as you read [
 
 ### [2. Concurrent Programming](concurrent/)
 
-### [3. Distributed Programming](distributed/)
+### [3. OTP](otp/)
 
-### [4. OTP](otp/)
+### [4. Distributed Programming](distributed/)
 
 ### [5. Libraries](libraries/)
 
