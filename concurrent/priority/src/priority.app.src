@@ -1,0 +1,16 @@
+{application, priority,
+ [{description, "priority"},
+  {vsn, "0.1.0"},
+  {registered, []},
+  {mod, { priority_app, []}},
+  {applications,
+   [kernel,
+    stdlib
+   ]},
+  {env,[]},
+  {modules, []},
+
+  {maintainers, []},
+  {licenses, ["MIT"]},
+  {links, []}
+ ]}.
