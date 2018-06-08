@@ -1,5 +1,11 @@
 # Calculate BMI
 
+## Reading Material
+
+- [Learn You Some Erlang](http://learnyousomeerlang.com/a-short-visit-to-common-data-structures)
+
+## Exercise
+
 Write a function `calculate_bmi:bmi/1` that takes a person (the record defined in `src/person_record.hrl`) as argument and calculate her [body mass index (BMI)](https://en.wikipedia.org/wiki/Body_mass_index).
 
 Then, write `calculate_bmi:classify/1` to classify a person according to her BMI:
