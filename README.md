@@ -18,7 +18,7 @@ The exercises are divided in 5 sections. They are meant to be done as you read [
 
 ### Sequential Programming
 
-1. [Installing](sequential/1installing/)
+1. [Installing](sequential/installing/)
 1. [Filter Fibonacci Numbers](sequential/filter_fibonacci_numbers/)
 1. [Hello world](sequential/hello/)
 1. [Hello pattern](sequential/hello_pattern/)
