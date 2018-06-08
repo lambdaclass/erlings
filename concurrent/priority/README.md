@@ -5,10 +5,19 @@
 - [Learn You Some Erlang: More On Multiprocessing](http://learnyousomeerlang.com/more-on-multiprocessing)
 - [Erlang Manual: processes](http://erlang.org/doc/reference_manual/processes.html)
 - [Erlang Manual: receive expression](http://erlang.org/doc/reference_manual/expressions.html#id81776)
-- [EUnit Testing](http://erlang.org/doc/apps/eunit/chapter.html)
 
 ## Exercise
 
-Test processing messages with priorities from the erlang message box without using any data structure.
+For this exercise we will process messages according to priorities from the erlang message box without using any data structure.
 
-Run with `make` seeing test in line 55. The test shows that 'VIP' messages are prioritized ignoring the order in the mailbox.
+You will write 3 functions for the `priority` module:
+- `start/0`: This will create the process that will receive the messages (using `priority_loop/1`) and return its PID.
+- `get_messages/1`: Given the PID will return all the messages stored in the receive loop state.
+- `priority_loop/1`: This function will hold a list of messages received and read incoming messages. Remeber, messages need to be read according to their priority.
+
+Notes:
+- Messages are of the form `{Priority, Message}`.
+- `Priority` is either `vip` or `normal`.
+- `priority_loop/1` may receive other things to perform certain actions needed.
+
+You can check your answer by doing `make concurrent/priority` from the root directory of your [erlings](https://github.com/lambdaclass/erlings) folder. If you wish you can also check our proposed [solution](solution).
