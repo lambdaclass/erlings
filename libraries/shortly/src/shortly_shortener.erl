@@ -46,7 +46,7 @@ search_long_url(ShortUrl) ->
         [{ShortUrl, LongUrlEntry}] -> LongUrlEntry
     end.
 
-notify_technique_call(F,A) -> apply(shortly_notification_pg2,F,A).
+notify_technique_call(F,A) -> apply(shortly_syn,F,A).
 notify_init() -> notify_technique_call(init,[]).
 notify_subscribe(Pid) -> notify_technique_call(subscribe,[Pid]).
 notify_unsubscribe(Pid) -> notify_technique_call(unsubscribe,[Pid]).

@@ -7,6 +7,7 @@
    [kernel,
     stdlib,
     mnesia,
+    syn,
     cowboy
    ]},
   {env,[{port, 8080}]},
