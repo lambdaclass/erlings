@@ -8,7 +8,7 @@
     stdlib,
     cowboy
    ]},
-  {env,[]},
+  {env,[{port, 8080}]},
   {modules, []},
   {maintainers, []},
   {licenses, ["MIT"]},
