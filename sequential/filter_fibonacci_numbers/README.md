@@ -2,7 +2,6 @@
 
 ## Reading material
 
-- [Learn You Some Erlang: Starting Out (for real)](http://learnyousomeerlang.com/starting-out-for-real)
 - [Fibonnaci number](https://en.wikipedia.org/wiki/Fibonacci_number)
 
 ## Exercise

@@ -1,0 +1,16 @@
+{application, filter_numbers,
+ [{description, "filter_numbers"},
+  {vsn, "0.1.0"},
+  {registered, []},
+  {mod, { filter_numbers_app, []}},
+  {applications,
+   [kernel,
+    stdlib
+   ]},
+  {env,[]},
+  {modules, []},
+
+  {maintainers, []},
+  {licenses, ["MIT"]},
+  {links, []}
+ ]}.
