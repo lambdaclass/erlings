@@ -6,6 +6,7 @@
   {applications,
    [kernel,
     stdlib,
+    mnesia,
     cowboy
    ]},
   {env,[{port, 8080}]},

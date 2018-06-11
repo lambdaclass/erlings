@@ -3,7 +3,10 @@
 -behaviour(application).
 
 -export([start/2,
-         stop/1]).
+         stop/1,
+         install/1]).
+
+-record(shortly_urls, {hash, url}).
 
 start(_StartType, _StartArgs) ->
     {ok, Port} = application:get_env(shortly, port),
@@ -22,3 +25,15 @@ start(_StartType, _StartArgs) ->
 stop(_State) ->
     cowboy:stop_listener(http),
     ok.
+
+install(Nodes) ->
+    mnesia:stop(),
+    rpc:multicall(Nodes, application, stop, [mnesia]),
+    ok = mnesia:create_schema([node() | Nodes]),
+    mnesia:start(),
+    rpc:multicall(Nodes, application, start, [mnesia]),
+    mnesia:create_table(shortly_urls,
+      [{attributes, record_info(fields, shortly_urls)},
+       {type, set},
+       {ram_copies, Nodes}]),
+    mnesia:stop().
