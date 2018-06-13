@@ -5,7 +5,7 @@
 - [The Hitchhiker's Guide to Concurrency](http://learnyousomeerlang.com/the-hitchhikers-guide-to-concurrency)
 - [More On Multiprocessing](http://learnyousomeerlang.com/more-on-multiprocessing)
 
-## Task
+## Exercise
 
 You will write a simple calculator (sum, substraction, multiplication, and division) using processes and passing messages. For this you will write a module `calculator` and create the following functions:
 
