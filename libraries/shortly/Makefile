@@ -7,12 +7,10 @@ server:
 	./rebar3 shell --apps shortly
 
 test:
-	./rebar3 eunit
 	./rebar3 ct
-	echo "ALL TESTS PASSED"
 
-node_8010:
-	./rebar3 shell --apps shortly --config src/config/node_8010.config --sname node_8010
+node_1:
+	./rebar3 shell --apps shortly --config src/config/node_1.config --sname node_1
 
-node_8020:
-	./rebar3 shell --apps shortly --config src/config/node_8020.config --sname node_8020
+node_2:
+	./rebar3 shell --apps shortly --config src/config/node_2.config --sname node_2
