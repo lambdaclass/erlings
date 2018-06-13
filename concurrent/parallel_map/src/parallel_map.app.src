@@ -1,0 +1,16 @@
+{application, parallel_map,
+ [{description, "parallel_map"},
+  {vsn, "0.1.0"},
+  {registered, []},
+  {mod, { parallel_map_app, []}},
+  {applications,
+   [kernel,
+    stdlib
+   ]},
+  {env,[]},
+  {modules, []},
+
+  {maintainers, []},
+  {licenses, ["MIT"]},
+  {links, []}
+ ]}.
