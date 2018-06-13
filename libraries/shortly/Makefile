@@ -6,9 +6,6 @@ default:
 server:
 	./rebar3 shell --apps shortly
 
-test:
-	./rebar3 ct
-
 node_1:
 	./rebar3 shell --apps shortly --config src/config/node_1.config --sname node_1
 
