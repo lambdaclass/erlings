@@ -3,7 +3,7 @@ DIRS = $(filter-out _build/, $(dir $(wildcard */)))
 EXERCISES = $(patsubst %/, %, $(filter-out $(DIRS), $(dir $(wildcard */*/))))
 CATEGORIES = $(subst /, , $(DIRS))
 
-PROFILE ?= test
+PROFILE ?= test $(EXERCISES) $(CATEGORIES)
 
 .PHONY: test $(CATEGORIES) $(EXERCISES)
 
@@ -13,4 +13,4 @@ test: $(CATEGORIES)
 $(CATEGORIES): $$(filter $$@%, $(EXERCISES))
 
 $(EXERCISES):
-	cd $@ && ../../rebar3 as $(PROFILE) eunit
+	cd $@ && ../../rebar3 as $(PROFILE) ct
