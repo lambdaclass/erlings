@@ -7,7 +7,7 @@
          unsubscribe/1,
          notify/1]).
 
--define (SYN_NAME, syn_ws_connections).
+-define(SYN_NAME, syn_ws_connections).
 
 init() ->
     syn:init().
