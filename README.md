@@ -18,8 +18,11 @@ The exercises are divided in 5 sections. They are meant to be done as you read [
 
 ### Sequential Programming
 
-1. [Installing](sequential/1installing/)
-1. [Filter Fibonacci Numbers](sequential/filter_fibonacci_numbers/)
+1. [Installing](sequential/installing/)
+1. [Filter numbers](sequential/filter_numbers/)
+   1. [Filter in](sequential/filter_numbers#filter-in)
+   1. [Filter out](sequential/filter_numbers#filter-out)
+   1. [Filter in values](sequential/filter_numbers#filter-in-values)
 1. [Hello world](sequential/hello/)
 1. [Hello pattern](sequential/hello_pattern/)
 1. [Lists](sequential/lists/)
@@ -33,6 +36,7 @@ The exercises are divided in 5 sections. They are meant to be done as you read [
 1. [Bank Accounts](sequential/bank_accounts/)
 1. [Calculate BMI](sequential/calculate_bmi/)
 1. [Insert element at position](sequential/insert_element_at/)
+1. [Filter Fibonacci Numbers](sequential/filter_fibonacci_numbers/)
 1. [Maps](sequential/maps/)
    1. [Mapping a Map](sequential/maps#mapping-a-map)
    1. [Merge Map](sequential/maps#merge-map)
