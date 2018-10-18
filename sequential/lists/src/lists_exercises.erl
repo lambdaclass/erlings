@@ -1,34 +1,57 @@
 -module(lists_exercises).
 
--export([reverse/1,
-         rmconsecutive/1,
-         even_fib_numbers/0,
-         foldl/3,
-         foldl/2,
-         rotate/2,
-         run_length_encode/1,
-         list_any/1]).
+-export([even_fib_numbers/0, foldl/2, foldl/3,
+	 list_any/2, reverse/1, rmconsecutive/1, rotate/2,
+	 run_length_encode/1]).
 
-reverse(List) ->
-  put_your_solution_here.
+reverse(List) -> reverse(List, []).
 
-rmconsecutive(List) ->
-  put_your_solution_here.
+reverse([], Acc) -> Acc;
+reverse([Head | Tail], Acc) ->
+    reverse(Tail, [Head | Acc]).
 
-even_fib_numbers() ->
-  put_your_solution_here.
+rmconsecutive(List) -> rmconsecutive(List, []).
 
-foldl(Fun, Acc, List) ->
-  put_your_solution_here.
+rmconsecutive([], Acc) -> reverse(Acc);
+rmconsecutive([X | Tail], Acc = [X | _Rest]) ->
+    rmconsecutive(Tail, Acc);
+rmconsecutive([X | Tail], Acc) ->
+    rmconsecutive(Tail, [X | Acc]).
 
-foldl(Fun, List) ->
-  put_your_solution_here.
+even_fib_numbers() -> even_fib_numbers(1, 2, 0).
 
-rotate(List, Tuple) ->
-  put_your_solution_here.
+even_fib_numbers(I, _J, Sum) when I > 4000000 -> Sum;
+even_fib_numbers(I, J, Sum) when I rem 2 == 0 ->
+    even_fib_numbers(J, I + J, Sum + I);
+even_fib_numbers(I, J, Sum) ->
+    even_fib_numbers(J, I + J, Sum).
 
-run_length_encode(List) ->
-  put_your_solution_here.
+foldl(_Fun, Acc, []) -> Acc;
+foldl(Fun, Acc, [Head | Tail]) ->
+    foldl(Fun, Fun(Acc, Head), Tail).
 
-list_any(N) ->
-  put_your_solution_here.
+foldl(_Fun, []) -> [];
+foldl(Fun, [Head | Tail]) -> foldl(Fun, Head, Tail).
+
+rotate([], {_direction, _N}) -> [];
+rotate(List, {_direction, 0}) -> List;
+rotate([Head | Tail], {left, N}) ->
+    rotate(Tail ++ [Head], {left, N - 1});
+rotate(List, {right, N}) ->
+    rotate(List, {left, length(List) - N}).
+
+run_length_encode(List) -> run_length_encode(List, []).
+
+run_length_encode([], Acc) -> reverse(Acc);
+run_length_encode([Head | Tail],
+		  [[Count, Head] | Rest]) ->
+    run_length_encode(Tail, [[Count + 1, Head] | Rest]);
+run_length_encode([Head | Tail], Acc) ->
+    run_length_encode(Tail, [[1, Head] | Acc]).
+
+list_any(_Pred, []) -> false;
+list_any(Pred, [Head | Tail]) ->
+    case Pred(Head) of
+      true -> true;
+      false -> list_any(Pred, Tail)
+    end.

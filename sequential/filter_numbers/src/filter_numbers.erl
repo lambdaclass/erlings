@@ -1,14 +1,13 @@
 -module(filter_numbers).
 
--export([filter_in/3,
-         filter_out/3,
-         filter_in_values/3]).
+-export([filter_in/3, filter_in_values/3,
+	 filter_out/3]).
 
 filter_in(From, To, N) ->
-  put_your_solution_here.
+    [X || X <- lists:seq(From, To), X rem N =:= 0].
 
 filter_out(From, To, N) ->
-  put_your_solution_here.
+    [X || X <- lists:seq(From, To), X rem N =/= 0].
 
 filter_in_values(From, To, {Min, Max}) ->
-  put_your_solution_here.
+    [X || X <- lists:seq(From, To), X >= Min andalso X =< Max].
