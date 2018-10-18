@@ -2,16 +2,18 @@
 
 -export([process_operation/2]).
 
-process_operation(Bank,
-		  {AccNumber, withdraw, Amount}) ->
-    case lists:keyfind(AccNumber, 1, Bank) of
+process_operation(Bank,{AccNumber, Operation, Amount}) ->
+    case find_account(Bank, AccNumber) of
       false -> {error, account_not_found};
-      {AccNumber, Funds} when Funds < Amount ->
-	  {error, insufficient_funds};
-      {AccNumber, Funds} -> {AccNumber, Funds - Amount}
-    end;
-process_operation(Bank, {AccNumber, deposit, Amount}) ->
-    case lists:keyfind(AccNumber, 1, Bank) of
-      false -> {error, account_not_found};
-      {AccNumber, Funds} -> {AccNumber, Funds + Amount}
+      Account -> do_operation(Account, Operation, Amount)
     end.
+
+find_account(Bank, AccNumber) -> lists:keyfind(AccNumber, 1, Bank).
+
+do_operation({_AccNumber, Funds}, withdraw, Amount) when Funds < Amount ->
+    {error, insufficient_funds};
+do_operation({AccNumber, Funds}, withdraw, Amount) ->
+    {AccNumber, Funds - Amount};
+do_operation({AccNumber, Funds}, deposit, Amount) ->
+    {AccNumber, Funds + Amount}.
+
