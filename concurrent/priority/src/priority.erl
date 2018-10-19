@@ -5,10 +5,20 @@
          priority_loop/1]).
 
 start() ->
-  your_solution_here.
+  spawn(?MODULE, priority_loop, [[]]).
 
 get_messages(Pid) ->
-  your_solution_here.
+    Pid ! {self(), {get}},
+    receive
+        {Pid, {State}} -> State
+    end.
 
 priority_loop(State) ->
-  your_solution_here.
+    receive
+        {vip, Msg} -> priority_loop([{vip, Msg} | State])
+    after 1 ->
+        receive
+            {From, {get}} -> From ! {self(), {lists:reverse(State)}};
+            {Priority, Msg} -> priority_loop([{Priority, Msg} | State])
+        end
+    end.
