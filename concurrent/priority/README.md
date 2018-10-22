@@ -8,7 +8,8 @@
 
 ## Exercise
 
-For this exercise we will process messages according to priorities from the erlang message box without using any data structure.
+For this exercise we will process messages according to priorities from the erlang message box without using any data structure.  
+Messages with priority `vip` should be processed _as soon as_ they enter the `priority_loop`. Carefully consider how messages are processed by a `receive` block, and how you can _combine_ more than one block to match clauses in a certain order. Hints on how to solve this found [here](http://learnyousomeerlang.com/more-on-multiprocessing).
 
 You will write 3 functions for the `priority` module:
 - `start/0`: This will create the process that will receive the messages (using `priority_loop/1`) and return its PID.

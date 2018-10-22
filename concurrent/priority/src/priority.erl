@@ -16,7 +16,7 @@ get_messages(Pid) ->
 priority_loop(State) ->
     receive
         {vip, Msg} -> priority_loop([{vip, Msg} | State])
-    after 1 ->
+    after 0 ->
         receive
             {From, {get}} -> From ! {self(), {lists:reverse(State)}};
             {Priority, Msg} -> priority_loop([{Priority, Msg} | State])
