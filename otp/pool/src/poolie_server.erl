@@ -45,13 +45,17 @@ handle_call({work, MFA}, _From, S = #state{idle=Idle, busy=Busy}) ->
   {reply, Msg, NewState};
 
 handle_call(stop, _From, State) ->
-   {stop, normal, stopped, State};
+  {stop, normal, stopped, State};
 
 handle_call(_Request, _From, State) ->
-    {reply, ok, State}.
+  {reply, ok, State}.
+
+handle_cast({result, {Worker, MFA, Result}}, S = #state{idle=Idle, busy=Busy}) ->
+  io:format("Got results for ~p:~nResult: ~p~n", [MFA, Result]),
+  {noreply, S#state{idle=gb_sets:add(Worker, Idle), busy=gb_sets:delete(Worker, Busy)}};
 
 handle_cast(_Msg, State) ->
-   {noreply, State}.
+  {noreply, State}.
 
 handle_info({start_worker_supervisor, Sup}, S = #state{limit=Limit}) ->
   Spec = {poolie_worker_sup,
@@ -65,16 +69,16 @@ handle_info({start_worker_supervisor, Sup}, S = #state{limit=Limit}) ->
   {noreply, S#state{sup=Pid, idle=start_workers(Pid, Limit, gb_sets:new())}};
 
 handle_info(_Info, State) ->
-   {noreply, State}.
+  {noreply, State}.
 
 terminate(_Reason, _State) ->
   ok.
 
 code_change(_OldVsn, State, _Extra) ->
-   {ok, State}.
+  {ok, State}.
 
 start_workers(_WorkerSup, 0, Workers) -> 
   Workers;
 start_workers(WorkerSup, N, Workers) ->
-  {ok, Pid} = supervisor:start_child(WorkerSup, []),
+  {ok, Pid} = supervisor:start_child(WorkerSup, [?SERVER]),
   start_workers(WorkerSup, N-1, gb_sets:add(Pid, Workers)).
