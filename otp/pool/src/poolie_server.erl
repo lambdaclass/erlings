@@ -2,7 +2,7 @@
 
 -behaviour(gen_server).
 
--export([start/2, stop/0, start_link/2, run/3, run/2]).
+-export([start/2, stop/0, start_link/2, run/3, run/2, pool_info/0]).
 -export([init/1, handle_call/3, handle_cast/2, handle_info/2, terminate/2, code_change/3]).
 
 -record(state, {limit, sup, idle=gb_sets:empty(), busy=gb_sets:empty()}).
@@ -10,13 +10,17 @@
 
 %% API
 
-run(M, F, A) ->
+run(M, F, A) when is_list(A) ->
   Msg = gen_server:call(?SERVER, {work, {M, F, A}}),
   io:format(Msg).
 
-run(F, A) ->
+run(F, A) when is_function(F), is_list(A) ->
   Msg = gen_server:call(?SERVER, {work, {F, A}}),
   io:format(Msg).
+
+pool_info() ->
+  {PoolSize, Idle, Busy} = gen_server:call(?SERVER, info),
+  io:format("Pool has ~p workers.~nThere are ~p idle and ~p busy workers.~n", [PoolSize, Idle, Busy]).
 
 start(PoolSize, Sup) ->
   gen_server:start({local, ?SERVER}, ?MODULE, {PoolSize, Sup}, []).
@@ -44,6 +48,9 @@ handle_call({work, MFA}, _From, S = #state{idle=Idle, busy=Busy}) ->
   end,
   {reply, Msg, NewState};
 
+handle_call(info, _From, S = #state{limit=Limit, idle=Idle, busy=Busy}) ->
+  {reply, {Limit, gb_sets:size(Idle), gb_sets:size(Busy)}, S};
+
 handle_call(stop, _From, State) ->
   {stop, normal, stopped, State};
 
@@ -65,7 +72,6 @@ handle_info({start_worker_supervisor, Sup}, S = #state{limit=Limit}) ->
           supervisor,
           [poolie_worker_sup]},
   {ok, Pid} = supervisor:start_child(Sup, Spec),
-  link(Pid),
   {noreply, S#state{sup=Pid, idle=start_workers(Pid, Limit, gb_sets:new())}};
 
 handle_info(_Info, State) ->

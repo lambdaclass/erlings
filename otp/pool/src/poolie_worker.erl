@@ -10,14 +10,12 @@ start(Server) ->
   gen_server:start(?MODULE, Server, []).
 
 start_link(Server) ->
-  io:format("About to start Poolie Worker with args~nServer: ~p", [Server]),
   gen_server:start_link(?MODULE, Server, []).
 
 stop() ->
   gen_server:call(self(), stop).
 
 init(Server) ->
-  io:format("~nAt worker init~nServer: ~p~n", [Server]),
   {ok, Server}.
 
 handle_call(stop, _From, State) ->
@@ -27,13 +25,11 @@ handle_call(_Request, _From, State) ->
   {reply, ok, State}.
 
 handle_cast({work, MFA = {M, F, A}}, Server) ->
-  io:format("~nRecieved work message~nMFA: ~p~n", [MFA]),
   Result = erlang:apply(M, F, A),
   gen_server:cast(Server, {result, {self(), MFA, Result}}),
   {noreply, Server};
 
 handle_cast({work, FA = {F, A}}, Server) ->
-  io:format("~nRecieved work message~nFA: ~p~n", [FA]),
   Result = erlang:apply(F, A),
   gen_server:cast(Server, {result, {self(), FA, Result}}),
   {noreply, Server};
