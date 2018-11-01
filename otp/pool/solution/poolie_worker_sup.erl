@@ -8,4 +8,5 @@ start_link() ->
   supervisor:start_link(?MODULE, []).
 
 init([]) ->
-  put_your_solution_here.
+  {ok, {{simple_one_for_one, 5, 500}, [{poolie_worker, {poolie_worker, start_link, []}, 
+  permanent, 5000, worker, [poolie_worker]}]}}.
