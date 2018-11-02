@@ -13,14 +13,12 @@
 %% Supervisor callbacks
 -export([init/1]).
 
--define(SERVER, ?MODULE).
-
 %%====================================================================
 %% API functions
 %%====================================================================
 
 start_link() ->
-    supervisor:start_link({local, ?SERVER}, ?MODULE, []).
+    supervisor:start_link(?MODULE, []).
 
 %%====================================================================
 %% Supervisor callbacks
@@ -31,7 +29,9 @@ start_link() ->
 %% Before OTP 18 tuples must be used to specify a child. e.g.
 %% Child :: {Id,StartFunc,Restart,Shutdown,Type,Modules}
 init([]) ->
-  put_your_solution_here.
+  WorkerSup = worker_supervisor_spec,
+  Server = pool_server_spec,
+  {ok, {{supervisor_strategy}, [WorkerSup, Server]}}.
 
 %%====================================================================
 %% Internal functions
