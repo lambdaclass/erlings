@@ -21,6 +21,23 @@ In `poolie_sup` and `poolie_worker_sup` you will define appropriate supervision 
 ￼- `run/2`: Same as `run/3`, but only takes a function and a list of args.
 - `gen_server` callbacks to handle initialization and communication with workers.
 
+### Example
+```console
+1> poolie_server:run(fun(X) -> X + 1 end, [5]).
+Request is being processed
+ok
+
+Got results for {#Fun<erl_eval.6.128620087>,[5]}
+Result: 6
+
+2> poolie_server:run(lists, max, [[1,2,3,4,5]]).
+Request is being processed
+ok
+
+Got results for {lists,max,[[1,2,3,4,5]]}
+Result: 5
+```
+
 
 Notes:
 - Think about what supervisor strategies you should use.
