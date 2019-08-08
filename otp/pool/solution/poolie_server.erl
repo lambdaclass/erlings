@@ -6,8 +6,6 @@
 -export([init/1, handle_call/3, handle_cast/2]).
 
 -record(state, {limit, idle}).
--define(WORKERSUP, poolie_worker_sup).
--define(SERVER, ?MODULE).
 -define(N, 10). %% Number of workers
 
 %% API

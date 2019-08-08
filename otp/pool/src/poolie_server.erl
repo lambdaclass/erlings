@@ -7,7 +7,6 @@
 
 -record(state, {limit, idle}).
 
--define(WORKERSUP, poolie_worker_sup).
 -define(N, 10). %% Number of workers
 
 %% API
