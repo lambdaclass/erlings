@@ -94,12 +94,12 @@ Example:
 [solution](solution/lists_exercises.erl#L107-L108)
 
 ### Anagram
-Write a function `list_exercises:anagram/2` thatn takes a list of strings and a string and returns all possible anagrams for the given string in the given list.
+Write a function `list_exercises:anagram/2` that takes a list of strings, a string ("MyWord"), and returns all elements of the list that are an anagram of "MyWord"
 
 Example:
 ```erlang
 1>lists_excercises:anagram(["god","cat","dog"], "dog").
-%%["dog"]
+%%["god"]
 
 ```
 
