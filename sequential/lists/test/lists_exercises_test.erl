@@ -47,6 +47,6 @@ any_empty_test() ->
 anagram_test() ->
     List = ["Panel", "plane", "Penal", "PlenA", "Nepal", "ArgentinA", "Laos"],
     String = "Nepal",
-    Res = ["panel","plane","penal","plena"],
+    Res = ["Panel","plane","Penal","PlenA"],
     ?assertEqual(Res, lists_exercises:anagram(List,String)).
 
