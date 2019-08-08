@@ -92,3 +92,16 @@ Example:
 %% false
 ```
 [solution](solution/lists_exercises.erl#L107-L108)
+
+### Anagram
+Write a function `list_exercises:anagram/2` thatn takes a list of strings and a string and returns all possible anagrams for the given string in the given list.
+
+Example:
+```erlang
+1>lists_excercises:anagram(["god","cat","dog"], "dog").
+%%["dog"]
+
+```
+
+[solution](solution/lists:exercises.erl#L111-L131)
+

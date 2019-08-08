@@ -7,7 +7,8 @@
          foldl/3,
          rotate/2,
          run_length_encode/1,
-         list_any/2]).
+         list_any/2,
+         anagram/2]).
 
 
 % Reverse
@@ -101,3 +102,26 @@ run_length_encode([]) ->
 % Any
 list_any(F, List) ->
   lists:foldl(fun(X, Y) -> F(X) or Y end, false, List).
+
+%Anagram
+anagram(List, S) -> 
+    Words = toLowerCase(List, []),
+    String = string:lowercase(S),
+    anagram(Words, String, []).
+
+anagram([H|T], H, Acc) ->
+    anagram(T, H, Acc);
+
+anagram([], _S, Acc) -> Acc;
+anagram([H|T], S, Acc) ->
+    case lists:sort(H) == lists:sort(S) of
+        true ->
+            anagram(T, S, [H|Acc]);
+        false->
+            anagram(T,S,Acc)
+    end.
+
+toLowerCase([], Acc) -> Acc;
+toLowerCase([H|T],Acc) ->
+    LowerString = string:lowercase(H),
+    toLowerCase(T,[LowerString|Acc]).

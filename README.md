@@ -33,6 +33,7 @@ The exercises are divided in 5 sections. They are meant to be done as you read [
    1. [Rotate Lists](sequential/lists#rotate-lists)
    1. [Run-length Encoding of a List](sequential/lists#run-length-encoding-of-a-list)
    1. [Any](sequential/lists#any)
+   1. [Anagram](sequential/lists#anagram)
 1. [Bank Accounts](sequential/bank_accounts/)
 1. [Calculate BMI](sequential/calculate_bmi/)
 1. [Insert element at position](sequential/insert_element_at/)

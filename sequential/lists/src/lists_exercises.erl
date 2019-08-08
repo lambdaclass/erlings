@@ -7,7 +7,8 @@
          foldl/2,
          rotate/2,
          run_length_encode/1,
-         list_any/1]).
+         list_any/1,
+         anagram/2]).
 
 reverse(List) ->
   put_your_solution_here.
@@ -32,3 +33,6 @@ run_length_encode(List) ->
 
 list_any(N) ->
   put_your_solution_here.
+
+anagram(List, S) -> 
+  put_yout_solution_here.
