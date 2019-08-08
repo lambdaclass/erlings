@@ -98,7 +98,7 @@ Write a function `list_exercises:anagram/2` that takes a list of strings, a stri
 
 Example:
 ```erlang
-1>lists_excercises:anagram(["god","cat","dog"], "dog").
+1>lists_exercises:anagram(["god","cat","dog"], "dog").
 %%["god"]
 
 ```
