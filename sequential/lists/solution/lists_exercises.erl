@@ -105,23 +105,20 @@ list_any(F, List) ->
 
 %Anagram
 anagram(List, S) -> 
-    Words = toLowerCase(List, []),
-    String = string:lowercase(S),
-    anagram(Words, String, []).
-
-anagram([H|T], H, Acc) ->
-    anagram(T, H, Acc);
+    anagram(List, S, []).
 
 anagram([], _S, Acc) -> Acc;
 anagram([H|T], S, Acc) ->
-    case lists:sort(H) == lists:sort(S) of
-        true ->
+    LowerH = string:lowercase(H),
+    LowerS = string:lowercase(S),
+    case LowerH == LowerS of
+      true ->
+        anagram(T,S,Acc);
+      false ->
+        case lists:sort(LowerH) == lists:sort(LowerS) of
+          true ->
             anagram(T, S, [H|Acc]);
-        false->
+          false->
             anagram(T,S,Acc)
-    end.
-
-toLowerCase([], Acc) -> Acc;
-toLowerCase([H|T],Acc) ->
-    LowerString = string:lowercase(H),
-    toLowerCase(T,[LowerString|Acc]).
+    end
+  end.
