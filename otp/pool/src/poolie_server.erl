@@ -8,28 +8,27 @@
 -record(state, {limit, idle}).
 
 -define(WORKERSUP, poolie_worker_sup).
--define(SERVER, ?MODULE).
 -define(N, 10). %% Number of workers
 
 %% API
 
 run(M, F, A) when is_list(A) ->
-  Msg = gen_server:call(?SERVER, {work, {M, F, A}}),
+  Msg = gen_server:call(?MODULE, {work, {M, F, A}}),
   io:format(Msg).
 
 run(F, A) when is_function(F), is_list(A) ->
-  Msg = gen_server:call(?SERVER, {work, {F, A}}),
+  Msg = gen_server:call(?MODULE, {work, {F, A}}),
   io:format(Msg).
 
 pool_info() ->
-  {PoolSize, Idle, Busy} = gen_server:call(?SERVER, info),
+  {PoolSize, Idle, Busy} = gen_server:call(?MODULE, info),
   io:format("Pool has ~p workers.~nThere are ~p idle and ~p busy workers.~n", [PoolSize, Idle, Busy]).
 
 start_link() ->
-  gen_server:start_link({local, ?SERVER}, ?MODULE, [], []).
+  gen_server:start_link({local, ?MODULE}, ?MODULE, [], []).
 
 stop() ->
-  gen_server:call({local, ?SERVER}, stop).
+  gen_server:call({local, ?MODULE}, stop).
 
 %% gen_server callbacks
 
