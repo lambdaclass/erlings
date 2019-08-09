@@ -105,20 +105,11 @@ list_any(F, List) ->
 
 %Anagram
 anagram(List, S) -> 
-    anagram(List, S, []).
-
-anagram([], _S, Acc) -> Acc;
-anagram([H|T], S, Acc) ->
-    LowerH = string:lowercase(H),
     LowerS = string:lowercase(S),
-    case LowerH == LowerS of
-      true ->
-        anagram(T,S,Acc);
-      false ->
-        case lists:sort(LowerH) == lists:sort(LowerS) of
-          true ->
-            anagram(T, S, [H|Acc]);
-          false->
-            anagram(T,S,Acc)
-    end
-  end.
+    SortedS = lists:sort(LowerS),
+    lists:filter(fun (X) -> 
+                    LowerH = string:lowercase(X),
+                    LowerH =/= LowerS andalso lists:sort(LowerH) =:= SortedS
+                end, List).
+
+
