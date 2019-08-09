@@ -7,7 +7,8 @@
          foldl/3,
          rotate/2,
          run_length_encode/1,
-         list_any/2]).
+         list_any/2,
+         anagram/2]).
 
 
 % Reverse
@@ -101,3 +102,14 @@ run_length_encode([]) ->
 % Any
 list_any(F, List) ->
   lists:foldl(fun(X, Y) -> F(X) or Y end, false, List).
+
+%Anagram
+anagram(List, S) -> 
+    LowerS = string:lowercase(S),
+    SortedS = lists:sort(LowerS),
+    lists:filter(fun (X) -> 
+                    LowerH = string:lowercase(X),
+                    LowerH =/= LowerS andalso lists:sort(LowerH) =:= SortedS
+                end, List).
+
+

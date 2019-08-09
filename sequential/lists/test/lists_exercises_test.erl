@@ -42,3 +42,11 @@ any_is_even_test() ->
 
 any_empty_test() ->
     ?assertNot(lists_exercises:list_any(fun(X) -> X == 20 end, [])).
+
+
+anagram_test() ->
+    List = ["Panel", "plane", "Penal", "PlenA", "Nepal", "ArgentinA", "Laos"],
+    String = "Nepal",
+    Res = ["Panel","plane","Penal","PlenA"],
+    ?assertEqual(Res, lists_exercises:anagram(List,String)).
+
