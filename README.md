@@ -16,7 +16,7 @@ One of the most important parts of any learning process it the resolution of pra
 ## Exercises
 The exercises are divided in 5 sections. They are meant to be done as you read [Learn you some Erlang for great good](http://learnyousomeerlang.com/), but feel free to do them as you wish. Click one to start!
 
-### Sequential Programming
+### A. Sequential Programming
 
 1. [Installing](sequential/installing/)
 1. [Filter numbers](sequential/filter_numbers/)
@@ -45,22 +45,22 @@ The exercises are divided in 5 sections. They are meant to be done as you read [
    1. [Maps to Records](sequential/maps#maps-to-records)
    1. [Proplist to Map](sequential/maps#proplist-to-map)
 
-### Concurrent Programming
+### B. Concurrent Programming
 
 1. [Parallel Map](concurrent/parallel_map)
 1. [Calculator](concurrent/calculator)
 1. [Priority](concurrent/priority)
 1. [Ring Benchmark](concurrent/ring_benchmark)
 
-### OTP
+### C. OTP
 
 1. [Shopping Cart](otp/shopping_cart/)
 
-### Distributed Programming
+### D. Distributed Programming
 
 1. [Remote Function](distributed/remote_fun/)
 
-### Libraries
+### E. Libraries
 
 1. [Shortly](libraries/shortly/)
 
