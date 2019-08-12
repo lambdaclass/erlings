@@ -105,3 +105,25 @@ Example:
 
 [solution](solution/lists:exercises.erl#L111-L131)
 
+### First letter last letter game
+
+There is a game called first letter, last letter. The object of this game is for one player to say a word apple, and for the other player to say a word that begins with the last letter of the previous word, i.e. elephant.
+
+Write a function `lists:exercises:lastLetter/1` that takes a list of strings and return a list where the subsequent name starts with the final letter of the previous name. Take the first element of the list as the first word of the sequence, that names cannot be repeated.
+
+
+Example:
+```erlang
+1> lists_exercises:lastLetter(["turnIp","Potato","peas","OniOn","yam","letuCe","broccoli",
+ "asparaguS","Artichoke"]).
+ %%["turnIp","Potato","OniOn"]
+
+2> lists_exercises:lastLetter([])
+%% []
+
+```
+
+[solution](solution/lists:exercises.erl#L117-L141)
+
+
+

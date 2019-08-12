@@ -50,3 +50,10 @@ anagram_test() ->
     Res = ["Panel","plane","Penal","PlenA"],
     ?assertEqual(Res, lists_exercises:anagram(List,String)).
 
+lastLetter_test()->
+  List = ["Afghanistan", "Albania", "Algeria", "Andorra", "Nigeria","Azerbaijan","Norway","Yemen","Nepal","Morocco","Oman",
+    "Portugal","Spain"],
+  Res = ["Nigeria","Algeria","Andorra","Azerbaijan","Azerbaijan",
+ "Norway","Yemen","Nepal"],
+  ?assertEqual(Res, lists_exercises:lastLetter(List)).
+

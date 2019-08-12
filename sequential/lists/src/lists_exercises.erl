@@ -35,4 +35,7 @@ list_any(N) ->
   put_your_solution_here.
 
 anagram(List, S) -> 
-  put_yout_solution_here.
+  put_your_solution_here.
+
+lastLetter(List) ->
+  put_your_solution_here.
