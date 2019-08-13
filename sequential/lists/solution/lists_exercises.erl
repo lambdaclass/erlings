@@ -9,7 +9,7 @@
          run_length_encode/1,
          list_any/2,
          anagram/2,
-         lastLetter/1]).
+         last_letter/1]).
 
 
 % Reverse
@@ -114,28 +114,28 @@ anagram(List, S) ->
                 end, List).
 
 %Last Letter game
-lastLetter([H|T]) -> lastLetter([H|T], [H]).
+last_letter([H|T]) -> last_letter([H|T], [H]).
 
-lastLetter([], Acc) -> 
+last_letter([], Acc) -> 
     lists:reverse(Acc);
-lastLetter([H|T], Acc) ->
+last_letter([H|T], Acc) ->
     L = lists:nthtail(length(H)-1,H),
-    Word = findWord(L, T),
+    Word = find_word(L, T),
     case Word of
         [] -> 
-            lastLetter([], Acc);
+            last_letter([], Acc);
         _ -> 
             NewWord= [Word|Acc],
-            lastLetter(T, NewWord)       
+            last_letter(T, NewWord)       
     end.
 
-findWord(_L,[]) -> [];
-findWord(L,[H|T]) ->
+find_word(_L,[]) -> [];
+find_word(L,[H|T]) ->
     Letter = string:lowercase(L),
     [A|_Rest] = string:lowercase(H),
     case [A] == Letter of
         true ->
             H;
         false ->
-            findWord(L,T)
+            find_word(L,T)
     end.

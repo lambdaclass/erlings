@@ -8,7 +8,8 @@
          rotate/2,
          run_length_encode/1,
          list_any/1,
-         anagram/2]).
+         anagram/2,
+         last_letter/1]).
 
 reverse(List) ->
   put_your_solution_here.
@@ -37,5 +38,5 @@ list_any(N) ->
 anagram(List, S) -> 
   put_your_solution_here.
 
-lastLetter(List) ->
+last_letter(List) ->
   put_your_solution_here.

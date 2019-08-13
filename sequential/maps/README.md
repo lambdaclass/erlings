@@ -14,7 +14,7 @@ Note: the function maps:fold/3 can be useful.
 
 Example:
 ``` erlang
-1> maps_exercises:sum_of_values(#{a=> 1, b=>3, c=>4}).
+1> maps_exercises:sum_of_values(#{a => 1, b =>3, c =>4}).
 %%8
 
 2> maps_exercises:sum_of_values(#{one => 1, three=> 3, seven => 7}).
@@ -27,10 +27,10 @@ Write a function `maps_exercises:min_value(Map)` that returns the minimum value 
 
 Example:
 ```erlang
-1>maps_exercises:min_value(#{a=> 1, b=>3, c=>4}).
+1>maps_exercises:min_value(#{a => 1, b =>3, c =>4}).
 %%1
 
-2>maps_exercises:min_value(#{five => 5, three=> 3, seven => 7, ten=>10}).
+2>maps_exercises:min_value(#{five => 5, three => 3, seven => 7, ten =>10}).
 %%3
 ```
 
@@ -42,11 +42,10 @@ Note: Remember you can use maps:keys/1 that returns a list with all the keys in 
 
 Example:
 ``` erlang
-1>maps_exercises:sort_by_keys(#{1=> one, 2=> two, 5=> five, 10=> ten, 3=> three, 15=> fifteen}).
-%% #{1 => one,2 => two,3 => three,5 => five,10 => ten,
-  15 => fifteen}
+1>maps_exercises:sort_by_keys(#{1=> one, 2 => two, 5 => five, 10 => ten, 3 => three, 15 => fifteen}).
+%% #{1 => one,2 => two,3 => three,5 => five,10 => ten, 15 => fifteen}
 
-2> maps:exercises:sort_by_keys(#{"one" => 1,"two"=>2, "three"=>3, "five"=>5, "four"=>4}).
+2> maps:exercises:sort_by_keys(#{"one" => 1,"two" => 2, "three" => 3, "five" => 5, "four"=>4}).
 #{"five" => 5,"four" => 4,"one" => 1,"three" => 3,"two" => 2}
 
 ```
@@ -57,10 +56,10 @@ Write a function `maps_exercises:return_values/1` that takes a map a returns a l
 
 Example:
 ``` erlang
-1> maps_exercises:return_values(#{"one" => 1,"two"=>2, "three"=>3, "five"=>5, "four"=>4}).
+1> maps_exercises:return_values(#{"one" => 1,"two" => 2, "three" =>3 , "five" => 5, "four" => 4}).
 %% [1,2,3,5,4]
 
-2> maps_exercises:return_values(#{1=> one, 2=> two, 5=> five, 10=> ten, 3=> three, 15=> fifteen})
+2> maps_exercises:return_values(#{1 => one, 2 => two, 5 => five, 10 => ten, 3 => three, 15 => fifteen})
 %%[one,two,three,five,ten,fifteen]
 
 ```

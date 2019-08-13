@@ -29,8 +29,8 @@ get_value([], _Map, Acc)->
 
 get_value([H|T], Map, Acc) ->
     Value = maps:get(H, Map),
-    Tupple = {H, Value},
-    get_value(T, Map, [Tupple|Acc]).
+    Tuple = {H, Value},
+    get_value(T, Map, [Tuple|Acc]).
 
 %% Values to list
 return_values(Map) ->
@@ -40,8 +40,8 @@ return_values(Map) ->
 get_values([], _Map, Acc) ->
     lists:reverse(Acc);
 get_values([H|T], Map, Acc)->
-    Valor = maps:get(H, Map),
-    get_values(T, Map, [Valor|Acc]).
+    Value = maps:get(H, Map),
+    get_values(T, Map, [Value|Acc]).
 
 %% Merge map
 merge(Map1, Map2) ->
