@@ -47,12 +47,12 @@ any_empty_test() ->
 anagram_test() ->
     List = ["Panel", "plane", "Penal", "PlenA", "Nepal", "ArgentinA", "Laos"],
     String = "Nepal",
-    Res = ["Panel","plane","Penal","PlenA"],
+    Res = ["Panel", "plane", "Penal", "PlenA"],
     ?assertEqual(Res, lists_exercises:anagram(List,String)).
 
 last_letter_test()->
-  List = ["Afghanistan", "Albania", "Algeria", "Andorra", "Nigeria","Azerbaijan","Norway","Yemen","Nepal","Morocco","Oman",
-    "Portugal","Spain"],
-  Res = ["Nigeria","Algeria","Andorra","Azerbaijan","Azerbaijan",
- "Norway","Yemen","Nepal"],
+  List = ["Afghanistan", "Albania", "Algeria", "Andorra", "Nigeria", "Azerbaijan", "Norway", 
+          "Yemen", "Nepal", "Morocco", "Oman", "Portugal", "Spain"],
+  Res = ["Nigeria", "Algeria", "Andorra", "Azerbaijan", "Azerbaijan",
+         "Norway", "Yemen", "Nepal"],
   ?assertEqual(Res, lists_exercises:last_letter(List)).
