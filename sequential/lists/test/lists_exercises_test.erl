@@ -56,4 +56,3 @@ last_letter_test()->
   Res = ["Nigeria","Algeria","Andorra","Azerbaijan","Azerbaijan",
  "Norway","Yemen","Nepal"],
   ?assertEqual(Res, lists_exercises:last_letter(List)).
-

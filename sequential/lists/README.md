@@ -105,6 +105,7 @@ Example:
 
 [solution](solution/lists:exercises.erl#L111-L131)
 
+
 ### First letter last letter game
 
 There is a game called first letter, last letter. The object of this game is for one player to say a word apple, and for the other player to say a word that begins with the last letter of the previous word, i.e. elephant.
@@ -124,6 +125,3 @@ Example:
 ```
 
 [solution](solution/lists:exercises.erl#L117-L141)
-
-
-
