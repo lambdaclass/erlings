@@ -2,6 +2,24 @@
 -record(person, {name, age}).
 -include_lib("eunit/include/eunit.hrl").
 
+sum_of_values_test()->
+  Map = #{a=>1, b=> 5, c => 6, d => 5},
+  ?assertEqual(17, maps_exercises:sum_of_values(Map)).
+
+min_value_test()->
+  Map = #{a=> 5, b=> 3, c=> 4, d=>2},
+  ?assertEqual(2, maps_exercises:min_value(Map)).
+
+sort_by_keys_test()->
+  Map = #{1 => a, 5=> c, 3=> d, 7=> f},
+  OrderedM = #{1=>a,3=>d,5=>c,7=>f},
+  ?assertEqual(OrderedM, maps_exercises:sort_by_keys(Map)).
+
+return_values_test()->
+  Map = #{a=>1, b=>5, c=>3},
+  List = [1,5,3],
+  ?assertEqual(List, maps_exercises:return_values(Map)).
+
 merge_empty_test() ->
   Map = #{a => 1, b => 2, c => 3},
   ?assertEqual(Map, maps_exercises:merge(#{}, Map)),

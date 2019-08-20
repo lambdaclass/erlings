@@ -34,11 +34,18 @@ The exercises are divided in 5 sections. They are meant to be done as you read [
    1. [Run-length Encoding of a List](sequential/lists#run-length-encoding-of-a-list)
    1. [Any](sequential/lists#any)
    1. [Anagram](sequential/lists#anagram)
+   1. [First Letter Last Letter](sequential/lists#first-letter-last-letter-game)
+
+
 1. [Bank Accounts](sequential/bank_accounts/)
 1. [Calculate BMI](sequential/calculate_bmi/)
 1. [Insert element at position](sequential/insert_element_at/)
 1. [Filter Fibonacci Numbers](sequential/filter_fibonacci_numbers/)
 1. [Maps](sequential/maps/)
+   1. [Sum of Values](sequential/maps#sum-of-values)
+   1. [Min Value](sequential/maps#min-value)
+   1. [Sort keys](sequential/maps/#sort-keys)
+   1. [Return values](sequential/maps/#return-values)
    1. [Mapping a Map](sequential/maps#mapping-a-map)
    1. [Merge Map](sequential/maps#merge-map)
    1. [List to Map](sequential/maps#list-to-map)

@@ -8,7 +8,9 @@
          rotate/2,
          run_length_encode/1,
          list_any/2,
-         anagram/2]).
+         anagram/2,
+         last_letter/1]).
+
 
 
 % Reverse
@@ -112,4 +114,29 @@ anagram(List, S) ->
                     LowerH =/= LowerS andalso lists:sort(LowerH) =:= SortedS
                 end, List).
 
+%Last Letter game
+last_letter([H|T]) -> last_letter([H|T], [H]).
 
+last_letter([], Acc) -> 
+    lists:reverse(Acc);
+last_letter([H|T], Acc) ->
+    L = lists:nthtail(length(H)-1,H),
+    Word = find_word(L, T),
+    case Word of
+        [] -> 
+            last_letter([], Acc);
+        _ -> 
+            NewWord= [Word|Acc],
+            last_letter(T, NewWord)       
+    end.
+
+find_word(_L,[]) -> [];
+find_word(L,[H|T]) ->
+    Letter = string:lowercase(L),
+    [A|_Rest] = string:lowercase(H),
+    case [A] == Letter of
+        true ->
+            H;
+        false ->
+            find_word(L,T)
+    end.

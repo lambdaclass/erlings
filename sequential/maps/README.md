@@ -6,6 +6,64 @@
 
 ## Exercises
 
+### Sum of Values
+
+Write a function `maps_exercises:sum_of_values/1` that takes a map a returns a sum of all values in the map.
+
+Note: the function maps:fold/3 can be useful.
+
+Example:
+``` erlang
+1> maps_exercises:sum_of_values(#{a => 1, b =>3, c =>4}).
+%%8
+
+2> maps_exercises:sum_of_values(#{one => 1, three=> 3, seven => 7}).
+%% 11
+```
+
+### Min Value
+
+Write a function `maps_exercises:min_value(Map)` that returns the minimum value of that Map.
+
+Example:
+```erlang
+1>maps_exercises:min_value(#{a => 1, b =>3, c =>4}).
+%%1
+
+2>maps_exercises:min_value(#{five => 5, three => 3, seven => 7, ten =>10}).
+%%3
+```
+
+### Sort keys
+
+Write a function `maps_exercises:sort_by_keys/1` that takes a map and returns a new map with the keys ordered from min to max.
+
+Note: Remember you can use maps:keys/1 that returns a list with all the keys in a map. 
+
+Example:
+``` erlang
+1>maps_exercises:sort_by_keys(#{1=> one, 2 => two, 5 => five, 10 => ten, 3 => three, 15 => fifteen}).
+%% #{1 => one,2 => two,3 => three,5 => five,10 => ten, 15 => fifteen}
+
+2> maps:exercises:sort_by_keys(#{"one" => 1,"two" => 2, "three" => 3, "five" => 5, "four"=>4}).
+#{"five" => 5,"four" => 4,"one" => 1,"three" => 3,"two" => 2}
+
+```
+
+### Return values
+
+Write a function `maps_exercises:return_values/1` that takes a map a returns a list with all the values in that map
+
+Example:
+``` erlang
+1> maps_exercises:return_values(#{"one" => 1,"two" => 2, "three" =>3 , "five" => 5, "four" => 4}).
+%% [1,2,3,5,4]
+
+2> maps_exercises:return_values(#{1 => one, 2 => two, 5 => five, 10 => ten, 3 => three, 15 => fifteen})
+%%[one,two,three,five,ten,fifteen]
+
+```
+
 ### Merge Map
 
 Write a function `maps_exercises:merge/2` that merges 2 maps, if they have a key in common, keep the value from the second map.
