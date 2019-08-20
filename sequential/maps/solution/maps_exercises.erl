@@ -21,16 +21,16 @@ min_value([H|T], Map, Acc) ->
 sort_by_keys(Map)->
     List = maps:keys(Map),
     OrderedL = lists:sort(List),
-    get_value(OrderedL, Map, []).
+    build_ordered_map(OrderedL, Map, []).
 
-get_value([], _Map, Acc)-> 
+build_ordered_map([], _Map, Acc)-> 
     NewMap = lists:reverse(Acc),
     maps:from_list(NewMap);
 
-get_value([H|T], Map, Acc) ->
+build_ordered_map([H|T], Map, Acc) ->
     Value = maps:get(H, Map),
     Tuple = {H, Value},
-    get_value(T, Map, [Tuple|Acc]).
+    build_ordered_map(T, Map, [Tuple|Acc]).
 
 %% Values to list
 return_values(Map) ->
