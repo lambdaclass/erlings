@@ -7,7 +7,7 @@
 
 ## Exercise
 
-In this exercise we are going to model a shopping cart. You can put items inside it (an item is just a tuple `{ItemName, Price}`) and ask him for the total cost of all the items.
+In this exercise we are going to model a shopping cart. You can put items inside it (an item is just a tuple `{ItemName, Price}`) and ask it for the total cost of all the items.
 
 So, using a [gen_server](http://erlang.org/doc/man/gen_server.html), write the following functions:
 
