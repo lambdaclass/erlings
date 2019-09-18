@@ -63,6 +63,7 @@ The exercises are divided in 5 sections. They are meant to be done as you read [
 ### C. OTP
 
 1. [Shopping Cart](otp/shopping_cart/)
+1. [Worker pool](/otp/pool)
 
 ### D. Distributed Programming
 
