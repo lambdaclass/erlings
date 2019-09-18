@@ -52,6 +52,7 @@ The exercises are divided in 5 sections. They are meant to be done as you read [
    1. [Records to Maps](sequential/maps#records-to-maps)
    1. [Maps to Records](sequential/maps#maps-to-records)
    1. [Proplist to Map](sequential/maps#proplist-to-map)
+1. [Implement a simple regex engine](sequential/regex/)
 
 ### B. Concurrent Programming
 
