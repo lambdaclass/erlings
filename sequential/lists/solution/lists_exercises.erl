@@ -90,16 +90,13 @@ rotate(L, {Dir, N}) ->
   lists:append(Left, Right).
 
 % Run-length encoding of a list
-run_length_encode([[Count, H]|[]]) ->
-  [[Count, H]];
-run_length_encode([[Count, H1], H1|T]) ->
-  run_length_encode([[Count + 1, H1]|T]);
-run_length_encode([[Count, H1], H2|T]) ->
-  [[Count, H1]|run_length_encode([[1, H2]|T])];
-run_length_encode([H|T]) ->
-  run_length_encode([[1, H]|T]);
-run_length_encode([]) ->
-  [].
+run_length_encode([], Acc) -> reverse(Acc);
+run_length_encode([H|T], [{Count, H}|AccT]) ->
+  run_length_encode(T, [{Count + 1, H}|AccT]);
+run_length_encode([H|T], Acc) -> 
+  run_length_encode(T, [{1, H}] ++ Acc).
+
+run_length_encode(L) -> run_length_encode(L, []).
 
 % Any
 list_any(F, List) ->
