@@ -69,13 +69,13 @@ Example:
 [solution](solution/lists_exercises.erl#L77-L86)
 
 ### Run-length encoding of a list
-Implement the so-called run-length encoding data compression method. Consecutive duplicates of elements are encoded as terms [N,E] where N is the number of duplicates of the element E.
+Implement the so-called run-length encoding data compression method. Consecutive duplicates of elements are encoded as terms {N,E} where N is the number of duplicates of the element E.
 
 Example:
 
 ``` erlang
 1> lists_exercises:run_length_encode([a,a,a,a,b,c,c,a,a,d,e,e,e,e]).
-%%[[4,a],[1,b],[2,c],[2,a],[1,d],[4,e]]
+%%[{4,a},{1,b},{2,c},{2,a},{1,d},{4,e}]
 ```
 [solution](solution/lists_exercises.erl#L90-L103)
 
