@@ -5,5 +5,5 @@
 function_server() ->
     register(function_server, self()),
     receive
-        {be,Function} -> Function()
+        {be, Function} -> Function()
     end.
