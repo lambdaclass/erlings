@@ -13,4 +13,4 @@ test: $(CATEGORIES)
 $(CATEGORIES): $$(filter $$@%, $(EXERCISES))
 
 $(EXERCISES):
-	cd $@ && ../../rebar3 as $(PROFILE) ct
+	cd $@ && rebar3 as $(PROFILE) ct
