@@ -19,7 +19,7 @@ run_tests([Folder | MoreFolders], CurrentCount, TotalCount) ->
 
 print_failure(Folder, CurrentCount, TotalCount) ->
   io:format("exercise `~s` failed~n", [Folder]),
-  io:format("review it, you may be closer than you thing,~n",[]),
+  io:format("review it, you may be closer than you think~n",[]),
   io:format("progress: ~p/~p~n", [CurrentCount-1, TotalCount]).
 
 run_make_on_folder(Folder) ->
