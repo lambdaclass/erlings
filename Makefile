@@ -5,7 +5,10 @@ CATEGORIES = $(subst /, , $(DIRS))
 
 PROFILE ?= test
 
-.PHONY: test $(CATEGORIES) $(EXERCISES)
+.PHONY: test $(CATEGORIES) $(EXERCISES) check-progress
+
+check-progress:
+	./check-progress
 
 test: $(CATEGORIES)
 
