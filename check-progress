@@ -7,7 +7,7 @@ main(_) ->
   run_tests(Folders, 1, length(Folders)).
 
 run_tests([], _, _) ->
-  io:format("All tests completed"),
+  io:format("All tests completed."),
   true;
 run_tests([Folder | MoreFolders], CurrentCount, TotalCount) ->
   case run_make_on_folder(Folder) of
@@ -18,9 +18,9 @@ run_tests([Folder | MoreFolders], CurrentCount, TotalCount) ->
   end.
 
 print_failure(Folder, CurrentCount, TotalCount) ->
-  io:format("exercise `~s` failed~n", [Folder]),
-  io:format("review it, you may be closer than you think~n",[]),
-  io:format("progress: ~p/~p~n", [CurrentCount-1, TotalCount]).
+  io:format("Exercise `~s` failed.~n", [Folder]),
+  io:format("Review it, you may be closer than you think.~n",[]),
+  io:format("Progress: ~p/~p.~n", [CurrentCount-1, TotalCount]).
 
 run_make_on_folder(Folder) ->
   Output = cmd(Folder, "make"),
