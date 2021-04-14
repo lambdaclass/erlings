@@ -14,7 +14,13 @@ One of the most important parts of any learning process it the resolution of pra
 - Read our [guidelines](https://github.com/lambdaclass/guidelines)
 
 ## Exercises
-The exercises are divided in 5 sections. They are meant to be done as you read [Learn you some Erlang for great good](http://learnyousomeerlang.com/), but feel free to do them as you wish. Click one to start!
+The exercises are divided in 5 sections. They are meant to be done as you read [Learn you some Erlang for great good](http://learnyousomeerlang.com/), but feel free to do them as you wish.
+
+Start by clicking one of the exercises below or just run:
+
+```
+$ make
+```
 
 ### A. Sequential Programming
 
