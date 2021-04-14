@@ -1,3 +1,3 @@
 .PHONY: test
 test:
-	rebar3 eunit
+	rebar3 ct
