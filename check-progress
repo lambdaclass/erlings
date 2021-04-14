@@ -24,7 +24,7 @@ print_failure(Folder, CurrentCount, TotalCount) ->
 
 run_make_on_folder(Folder) ->
   Output = cmd(Folder, "make"),
-  string:str(Output, "ALL TESTS PASSED") > 0.
+  string:str(Output, "tests passed.") > 0.
 
 cmd(Folder, Command) ->
   Cmd = io_lib:format("cd ~s && ~s", [Folder, Command]),
