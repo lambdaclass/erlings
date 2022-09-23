@@ -112,19 +112,21 @@ anagram(List, S) ->
                 end, List).
 
 %Last Letter game
-last_letter([H|T]) -> last_letter([H|T], [H]).
+last_letter([]) -> [];
+last_letter([H|T]) -> last_letter(T, [H]).
 
 last_letter([], Acc) -> 
     lists:reverse(Acc);
-last_letter([H|T], Acc) ->
-    L = lists:nthtail(length(H)-1,H),
-    Word = find_word(L, T),
+last_letter(List, [H|T]) ->
+    Letter = lists:nthtail(length(H)-1,H),
+    Word = find_word(Letter, List),
     case Word of
         [] -> 
-            last_letter([], Acc);
+            last_letter([], [H|T]);
         _ -> 
-            NewWord= [Word|Acc],
-            last_letter(T, NewWord)       
+            NewWord = [Word, H|T],
+            NewList = lists:delete(Word, List),
+            last_letter(NewList, NewWord)    
     end.
 
 find_word(_L,[]) -> [];

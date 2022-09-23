@@ -52,5 +52,5 @@ anagram_test() ->
 last_letter_test()->
   List = ["Afghanistan", "Albania", "Algeria", "Andorra", "Nigeria", "Norway", 
           "Yemen", "Nepal", "Morocco", "Oman", "Portugal", "Spain"],
-  Res = ["Afghanistan","Nigeria","Algeria","Andorra"],
+  Res = ["Afghanistan", "Nigeria", "Albania", "Algeria", "Andorra"],
   ?assertEqual(Res, lists_exercises:last_letter(List)).
