@@ -12,6 +12,7 @@ run_tests([], _, _) ->
 run_tests([Folder | MoreFolders], CurrentCount, TotalCount) ->
   case run_make_on_folder(Folder) of
     true ->
+      io:format("~p.......ok~n", [Folder]),
       run_tests(MoreFolders, CurrentCount + 1, TotalCount);
     false ->
       print_failure(Folder, CurrentCount, TotalCount)
@@ -27,7 +28,7 @@ run_make_on_folder(Folder) ->
   string:str(Output, "tests passed.") > 0.
 
 cmd(Folder, Command) ->
-  Cmd = io_lib:format("cd ~s && ~s", [Folder, Command]),
+  Cmd = io_lib:format("~s ~s", [Command, Folder]),
   CmdString = binary_to_list(iolist_to_binary(Cmd)),
   os:cmd(CmdString).
 
@@ -35,12 +36,12 @@ exercise_folders() ->
   lists:append(
     [
      in_folder("sequential", ["installing", "hello", "hello_pattern",
-                              "lists", "filter_powers_of_2", "bank_accounts",
-                              "insert_element_at", "calculate_bmi",
-                              "maps"]),
-     in_folder("concurrent", ["ring_benchmark"]),
-     in_folder("otp", ["shortly"])
+                              "lists", "bank_accounts", "calculate_bmi", "insert_element_at",
+                              "filter_fibonacci_numbers", "maps", "regex"]),
+     in_folder("concurrent", ["calculator", "parallel_map", "priority", "ring_benchmark"]),
+     in_folder("otp", ["shopping_cart", "pool"])
      %in_folder("distributed", ["remote_fun"])
+     %in_folder("libraries", ["shortly"])
     ]).
 
 in_folder(Folder, SubFolders) ->
