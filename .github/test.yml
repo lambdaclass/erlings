@@ -1,0 +1,11 @@
+on: push
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2.0.0
+      - uses: gleam-lang/setup-erlang@v1.1.3
+        with:
+          otp-version: "27"
+      - run: rebar3 eunit

@@ -1,4 +1,5 @@
-[![Build Status](https://travis-ci.org/lambdaclass/erlings.svg?branch=master)](https://travis-ci.org/lambdaclass/erlings)
+![Build Status](https://github.com/lambdaclass/erlings/actions/workflows/test.yml/badge.svg)
+
 
 # Erlings: Small exercises to get you used to reading and writing Erlang code
 
