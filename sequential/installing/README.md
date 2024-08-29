@@ -55,7 +55,8 @@ cd into this folder and eval the nix shell:
 ```sh
 cd erlings/sequential/install && nix-shell
 ```
-This will drop you into a bare-bones bash shell with erlang and rebar installed.
+This will drop you into a bare-bones bash shell with erlang and rebar installed,
+which you can use for the exercises.
 
 ## Checking environment
 
@@ -70,16 +71,11 @@ $> make
 You should get the following output:
 
 ~~~
-rebar3 eunit
+rebar3 ct
 ===> Verifying dependencies...
+===> Analyzing applications...
 ===> Compiling installing
-===> Performing EUnit tests...
-.
-
-Top 1 slowest tests (0.000 seconds, 0.0% of total time):
-  installing_test:installing_test/0: module 'installing_test'
-    0.000 seconds
-
-Finished in 0.032 seconds
-1 tests, 0 failures
+===> Running Common Test suites...
+%%% installing_SUITE: .
+All 1 tests passed.
 ~~~
