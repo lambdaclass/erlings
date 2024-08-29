@@ -13,7 +13,7 @@ real coding. We will need some software:
 - Make (probably already installed on your system).
 - Rebar.
 
-We suggest 2 ways to install Erlang: asdf or nix.
+We suggest 2 ways to install Erlang + Rebar: asdf or nix.
 
 ### ASDF
 
@@ -45,7 +45,17 @@ asdf install erlang 27.0.1 && asdf global erlang 27.0.1
 The global command is just to tell your environment to always use erlang 27, you
 can use `asdf local` instead to have distinct versions base on which folder you're currently in.
 
+### Nix
 
+Clone the repo: 
+```sh
+git clone https://github.com/lambdaclass/erlings.git
+```
+cd into this folder and eval the nix shell:
+```sh
+cd erlings/sequential/install && nix-shell
+```
+This will drop you into a bare-bones bash shell with erlang and rebar installed.
 
 ## Checking environment
 
