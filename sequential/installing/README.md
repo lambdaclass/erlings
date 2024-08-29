@@ -9,10 +9,43 @@
 In this exercise we will setup our environment before we start our
 real coding. We will need some software:
 
-- Check how to install [Erlang](https://www.erlang.org/).
-- Install the main build tool [Rebar3](https://github.com/erlang/rebar3).
-- Ensure that you have [Make](https://en.wikipedia.org/wiki/Make_(software))
-  installed and running.
+- Erlang 27.
+- Make (probably already installed on your system).
+- Rebar.
+
+We suggest 2 ways to install Erlang: asdf or nix.
+
+### ASDF
+
+First, we need to install ASDF:
+```sh
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.14.1
+```
+Then we'll have to add this to your bash or zsh config file:
+```sh
+. "$HOME/.asdf/asdf.sh"
+```
+Or, if you're using fish:
+```fish
+source ~/.asdf/asdf.fish
+```
+
+Be sure to check asdf's website, since there are some extra goodies to config
+like shell completions.
+
+```sh
+asdf plugin add erlang https://github.com/asdf-vm/asdf-erlang.git
+```
+
+And finally, install erlang 27.0.1:
+```sh
+asdf install erlang 27.0.1 && asdf global erlang 27.0.1
+```
+
+The global command is just to tell your environment to always use erlang 27, you
+can use `asdf local` instead to have distinct versions base on which folder you're currently in.
+
+
 
 ## Checking environment
 
