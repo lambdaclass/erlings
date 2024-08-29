@@ -11,4 +11,4 @@ jobs:
       - uses: gleam-lang/setup-erlang@v1.1.3
         with:
           otp-version: "27"
-      - run: - make test PROFILE=ci
+      - run: make test PROFILE=ci
