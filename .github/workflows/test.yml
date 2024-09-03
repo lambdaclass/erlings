@@ -11,4 +11,5 @@ jobs:
       - uses: erlef/setup-beam@v1
         with:
           otp-version: "27.0.1"
+          rebar3: "3.14.1"
       - run: make test PROFILE=ci
