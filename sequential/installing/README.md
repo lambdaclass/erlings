@@ -51,9 +51,9 @@ Clone the repo:
 ```sh
 git clone https://github.com/lambdaclass/erlings.git
 ```
-cd into this folder and eval the nix shell:
+cd into this folder and eval the nix flake:
 ```sh
-cd erlings/sequential/install && nix-shell
+cd erlings/sequential/install && nix develop
 ```
 This will drop you into a bare-bones bash shell with erlang and rebar installed,
 which you can use for the exercises.
