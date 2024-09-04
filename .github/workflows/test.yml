@@ -8,8 +8,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2.0.0
-      - uses: erlef/setup-beam@v1
+      - uses: cachix/install-nix-action@v27
         with:
-          otp-version: "27.0.1"
-          rebar3-version: "3.23.0"
+          nix_path: nixpkgs=channel:nixos-unstable
+      - name: Setup erlang
+        run: cd sequential/installing && nix-shell
       - run: make test PROFILE=ci
