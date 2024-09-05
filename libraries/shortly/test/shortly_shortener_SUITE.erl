@@ -10,11 +10,11 @@
 all() ->
   [
    test_notfound,
-   test_created
-   %% test_ok,
-   %% test_redirect,
+   test_created,
+   test_ok,
+   test_redirect,
    %% test_ws,
-   %% run_eunit
+   run_eunit
 ].
 
 init_per_suite(Config) ->

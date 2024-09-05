@@ -13,10 +13,10 @@ init() ->
     ok = syn:add_node_to_scopes([?SYN_NAME]).
 
 subscribe(Pid) ->
-    syn:join(?SYN_NAME, Pid).
+    syn:join(?SYN_NAME, "shortly-gruop", Pid).
 
 unsubscribe(Pid) ->
-    pg2:leave(?SYN_NAME, Pid).
+    syn:leave(?SYN_NAME, "shortly-group", Pid).
 
 notify(Msg) ->
     syn:publish(?SYN_NAME, "shortly-group", Msg).
