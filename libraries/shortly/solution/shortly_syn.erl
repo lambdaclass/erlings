@@ -10,7 +10,7 @@
 -define(SYN_NAME, syn_ws_connections).
 
 init() ->
-    syn:start().
+    ok = syn:add_node_to_scopes([?SYN_NAME]).
 
 subscribe(Pid) ->
     syn:join(?SYN_NAME, Pid).
@@ -19,4 +19,4 @@ unsubscribe(Pid) ->
     pg2:leave(?SYN_NAME, Pid).
 
 notify(Msg) ->
-    syn:publish(?SYN_NAME, Msg).
+    syn:publish(?SYN_NAME, "shortly-group", Msg).

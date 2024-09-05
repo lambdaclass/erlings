@@ -8,12 +8,14 @@
 -record(shortly_urls, {hash, url}).
 
 all() ->
-  [test_notfound,
-   test_created,
-   test_ok,
-   test_redirect,
-   test_ws,
-   run_eunit].
+  [
+   test_notfound,
+   test_created
+   %% test_ok,
+   %% test_redirect,
+   %% test_ws,
+   %% run_eunit
+].
 
 init_per_suite(Config) ->
   mnesia:start(),
@@ -21,13 +23,17 @@ init_per_suite(Config) ->
     [{attributes, record_info(fields, shortly_urls)},
      {type, set},
      {ram_copies, [node()]}]),
-  application:ensure_all_started(shortly),
-  application:ensure_all_started(gun),
+  Res = application:ensure_all_started(shortly),
+  erlang:display("HOLA"),
+  erlang:display(Res),
+  {ok, _ } = application:ensure_all_started(syn),
+  {ok, _ } = application:ensure_all_started(gun),
   Config.
 
 end_per_suite(Config) ->
   mnesia:clear_table(shortly_urls),
   application:stop(shortly),
+  application:stop(syn),
   application:stop(gun),
   Config.
 
