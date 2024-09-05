@@ -10,7 +10,7 @@
 -define(SYN_NAME, syn_ws_connections).
 
 init() ->
-    syn:init().
+    syn:start().
 
 subscribe(Pid) ->
     syn:join(?SYN_NAME, Pid).
