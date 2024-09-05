@@ -24,8 +24,6 @@ init_per_suite(Config) ->
      {type, set},
      {ram_copies, [node()]}]),
   Res = application:ensure_all_started(shortly),
-  erlang:display("HOLA"),
-  erlang:display(Res),
   {ok, _ } = application:ensure_all_started(syn),
   {ok, _ } = application:ensure_all_started(gun),
   Config.
