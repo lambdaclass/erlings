@@ -23,7 +23,7 @@ init_per_suite(Config) ->
     [{attributes, record_info(fields, shortly_urls)},
      {type, set},
      {ram_copies, [node()]}]),
-  Res = application:ensure_all_started(shortly),
+  {ok, _ } = application:ensure_all_started(shortly),
   {ok, _ } = application:ensure_all_started(syn),
   {ok, _ } = application:ensure_all_started(gun),
   Config.
