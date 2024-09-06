@@ -13,7 +13,7 @@ websocket_init(State) ->
     ok = shortly_shortener:subscribe(self()),
     {ok, State}.
 
-websocket_handle(Msg, State) ->
+websocket_handle(_Msg, State) ->
     {ok, State}.
 
 websocket_info(#{long_url := LongUrl, short_url := ShortUrl}, State) ->
