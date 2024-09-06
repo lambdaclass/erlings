@@ -13,7 +13,7 @@ all() ->
    test_created,
    test_ok,
    test_redirect,
-   %% test_ws,
+   test_ws,
    run_eunit
 ].
 
@@ -103,30 +103,28 @@ do_get_request(Url) ->
   {StatusCode, Headers, json_to_map(Body)}.
 
 url(Url) ->
-  StringUrl = http_uri:encode(Url),
+  StringUrl = uri_string:quote(Url),
   list_to_binary(StringUrl).
 
 ws_connect(Path) ->
 	{ok, Pid} = gun:open("127.0.0.1", 8080, #{retry=>0}),
 	{ok, http} = gun:await_up(Pid),
-	Ref = monitor(process, Pid),
 	gun:ws_upgrade(Pid, Path, [], #{compress => true}),
 	receive
-		{gun_ws_upgrade, Pid, ok, _} ->
-			ok;
-		_ ->
-      error(failed)
-	end,
-	{Pid, Ref}.
+		{gun_upgrade, Pid, StreamRef, [<<"websocket">>], _} ->
+			{Pid, StreamRef};
+		Err ->
+      error(Err)
+	end.
 
 ws_get({Pid,_}) ->
   receive
-    {gun_ws, Pid, {text, Text}} ->
+    {gun_ws, Pid, _StreamRef, {text, Text}} ->
       Text;
-    _ ->
-        error(failed)
+    Failed ->
+      error(Failed)
   after 5000 ->
-    error(timout)
+    error(timeout)
   end.
 
 ws_terminate({Pid, Ref}) ->

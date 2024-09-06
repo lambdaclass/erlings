@@ -10,10 +10,10 @@ init(Req, Opts) ->
     {cowboy_websocket,Req,Opts}.
 
 websocket_init(State) ->
-    shortly_shortener:subscribe(self()),
+    ok = shortly_shortener:subscribe(self()),
     {ok, State}.
 
-websocket_handle(_Msg, State) ->
+websocket_handle(Msg, State) ->
     {ok, State}.
 
 websocket_info(#{long_url := LongUrl, short_url := ShortUrl}, State) ->

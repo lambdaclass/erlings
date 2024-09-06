@@ -7,19 +7,19 @@
          unsubscribe/1,
          notify/1]).
 
--define (PG2_NAME, shortly_notification_pg2_name).
+-define (PG_NAME, shortly_notification_pg2_name).
 
 init() ->
-    pg2:create(?PG2_NAME).
+    pg:create(?PG_NAME).
 
 subscribe(Pid) ->
-    pg2:join(?PG2_NAME, Pid).
+    pg:join(?PG_NAME, Pid).
 
 unsubscribe(Pid) ->
-    pg2:leave(?PG2_NAME, Pid).
+    pg:leave(?PG_NAME, Pid).
 
 notify(Msg) ->
-    Subs = pg2:get_members(?PG2_NAME),
+    Subs = pg:get_members(?PG_NAME),
     lists:foreach(
      fun(Pid) ->
              Pid ! Msg

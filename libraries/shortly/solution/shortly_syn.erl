@@ -13,7 +13,7 @@ init() ->
     ok = syn:add_node_to_scopes([?SYN_NAME]).
 
 subscribe(Pid) ->
-    syn:join(?SYN_NAME, "shortly-gruop", Pid).
+    ok = syn:join(?SYN_NAME, "shortly-group", Pid).
 
 unsubscribe(Pid) ->
     syn:leave(?SYN_NAME, "shortly-group", Pid).
